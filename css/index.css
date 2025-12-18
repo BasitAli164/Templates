@@ -1,0 +1,26 @@
+.Hero-content{
+    position: absolute;
+    left: 10%;
+    top: 20%;
+}
+.Hero-content span{
+    font-size: 45px;
+    color: #f7444e;
+    font-family: serif;
+    font-weight: bold;
+}
+.Hero-content .diffColorSpan{
+    color: #002c3e;
+}
+.header-btn{
+    padding: 10px 45px;
+    background-color: #f7444e;
+    border: none;
+    font-weight: bold;
+    color: white;
+}
+.header-btn:hover{
+    background: transparent;
+    border: 1px solid#f7444e;
+    color: #f7444e;
+}
