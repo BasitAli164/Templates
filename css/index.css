@@ -24,3 +24,10 @@
     border: 1px solid#f7444e;
     color: #f7444e;
 }
+
+#circle-btn1,#circle-btn2,#circle-btn3{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #f7444e;
+}
