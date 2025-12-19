@@ -2,6 +2,7 @@
     position: absolute;
     left: 10%;
     top: 20%;
+    opacity: 0.8;
 }
 .Hero-content span{
     font-size: 45px;
@@ -30,4 +31,10 @@
     width: 15px;
     border-radius: 50%;
     background-color: #f7444e;
+}
+
+.shop-heading h2{
+    font-size: 45px;
+    font-weight: bold;
+    font-family: serif;
 }
