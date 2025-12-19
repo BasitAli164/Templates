@@ -111,10 +111,11 @@ body {
 #menu-btn {
     display: none;
 }
-.header .navbar.active {  
-        right: 2rem;
-        transition: .4s linear;
-    }
+
+.header .navbar.active {
+    right: 2rem;
+    transition: .4s linear;
+}
 
 .header .search-form {
     position: absolute;
@@ -337,15 +338,15 @@ body {
 
     .header .navbar a {
         font-size: 2rem;
-        margin: 2rem 2.5rem;  
-        display: block;  
+        margin: 2rem 2.5rem;
+        display: block;
         right: 110%;
     }
 
-    .header .search-form{
+    .header .search-form {
         width: 90%;
     }
-    
+
 }
 
 @media (max-width:450px) {
