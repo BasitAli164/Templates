@@ -250,7 +250,7 @@ body
     border: 1px solid;
     position: absolute;
     top: 110%;
-    right: 2rem;
+    right: 110%;
     box-shadow: var(--box-shadow);
     padding: 2rem;
     border-radius: .5rem;
@@ -293,4 +293,65 @@ body
 {
     text-decoration: underline;
     color: var(--green);
+}
+
+.header .login-form.active{
+    right: 2rem;
+    transition: .4rem linear;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Query */
+
+@media (max-width:991px) {
+    html
+{
+    font-size: 55%;
+}
+.header{
+    padding: 2rem;
+}
+
+    
+}
+
+
+@media (max-width:768px){
+
+    .header .navbar{
+        position: absolute;
+        top: 110%;
+        right: 2rem;
+        width: 30rem;
+        box-shadow: var(--box-shadow);
+    }
+}
+
+@media (max-width:450px) {
+    html
+{
+    font-size: 50%;
+}
+
+    
 }
