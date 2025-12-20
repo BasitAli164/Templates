@@ -5,7 +5,7 @@
     --green: green;
     --black: #130f40;
     --light-color: #666;
-    --box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 1);
+    --box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
     --border: 2rem solid rgba(0, 0, 0, 1);
     --outline: .1rem solid rgba(0, 0, 0, 1);
 
@@ -260,7 +260,7 @@ section {
     border: 1px solid;
     position: absolute;
     top: 110%;
-    right: 110%;
+    right: -110%;
     box-shadow: var(--box-shadow);
     padding: 2rem;
     border-radius: .5rem;
@@ -343,7 +343,6 @@ section {
 
 .features .box-container
 {
-    border: 1px solid;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
     gap: 1.5rem;
@@ -351,7 +350,36 @@ section {
 }
 .features .box-container .box
 {
-    
+    padding: 3rem 2rem;
+    background-color: #fff;
+    outline: var(--outline);
+    outline-offset: -1rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+.features .box-container .box:hover
+{
+    box-shadow: 1px 1px 10px 5px var(--green);
+}
+
+.features .box-container .box img{
+    margin: 1rem 0;
+    height: 15rem;
+}
+
+.features .box-container .box h3{
+    font-size: 2.5rem;
+    line-height: 1.8;
+    color: var(--black);
+
+}
+
+.features .box-container .box p{
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--light-color);
+    padding: 1rem 0;
 }
 
 
