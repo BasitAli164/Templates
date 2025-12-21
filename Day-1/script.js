@@ -22,5 +22,5 @@ console.log(btn)
 
 btn.addEventListener('click',()=>{
     btn.classList.toggle('active')
-    console.log("object")
+    
 })
