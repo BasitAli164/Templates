@@ -7,5 +7,48 @@
 html,body{
     width: 100%;
     height: 100%;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container{
+    width: 90%;
+    height: 90%;    
+    /* background-color: aquamarine; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+.card{
+    width: 300px;
+    height: 400px;
+    background-color: #aaaaaa;
+    border-radius: .5rem;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.card img{
+    width: 90%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: .4rem;
+
+}
+
+.btn button {
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    border: none;
+    margin-left: 10px;
 }
