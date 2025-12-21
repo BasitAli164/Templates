@@ -49,14 +49,14 @@ main{
 .btn{
     padding: 1rem 4rem;
     color: black;
-    background: lightgreen;
+    background: rgb(78, 217, 78);
     border: none;
     outline-offset: -1;
     outline: 1px solid;
-    border-radius:1rem;
+    border-radius:1rem; 
     margin: 5rem 4rem;
 }
 
 .btn.active{
-    background-color: lightblue;
+    background-color: rgb(9, 190, 250);
 }

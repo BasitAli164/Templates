@@ -18,8 +18,9 @@ function removeClassList(){
 
 
 let btn=document.querySelector('.btn')
+console.log(btn)
 
 btn.addEventListener('click',()=>{
-    btn.classList.toggle('.active')
+    btn.classList.toggle('active')
     console.log("object")
 })
