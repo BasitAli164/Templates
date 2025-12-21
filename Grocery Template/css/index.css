@@ -389,12 +389,18 @@ section {
 .product .product-slider:first-child {
     margin-bottom: 2rem;
 }
-
+.product .product-slider .wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.5rem;
+    flex-wrap: wrap;
+}
 .product .product-slider .wrapper .box {
     background-color: #fff;
     border-radius: .5rem;
     text-align: center;
-    padding: 3rem 2rem;
+    padding: 3rem 3rem;
     outline-offset: -1rem;
     outline: var(--outline);
     box-shadow: var(--box-shadow);

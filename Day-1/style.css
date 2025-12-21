@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+html,body{
+    width: 100%;
+    height: 100%;
+
+}
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-left: 10px;
+}
+.images{
+    height: 90%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    flex: 0.5;
+    display: flex;
+    align-items: end;
+    padding-bottom: 100px;
+    padding-left: 10px;
+
+}
+.images h1{
+    color: #000;
+    opacity: 0;
+}
+
+
+.images.active{
+    flex: 5;
+}
+.images.active h1{
+    opacity: 1;
+    
+}
+
+
+.btn{
+    padding: 1rem 4rem;
+    color: black;
+    background: lightgreen;
+    border: none;
+    outline-offset: -1;
+    outline: 1px solid;
+    border-radius:1rem;
+    margin: 5rem 4rem;
+}
+
+.btn.active{
+    background-color: lightblue;
+}
