@@ -33,3 +33,12 @@ addChild.addEventListener("click",()=>{
         parent.appendChild(child)
 
     })
+
+
+let remvoeChild=document.querySelector("#removeChild")
+
+remvoeChild.addEventListener('click',()=>{
+    const child=document.body.querySelector('.child');
+    parent.removeChild(child)
+})
+
