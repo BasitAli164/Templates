@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: beige;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    width: 400px;
+    height: 400px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid red;
+    padding: 10px 30px;
+    box-shadow: 3px 3px 30px 5px rgb(182, 244, 212);
+    border-radius: 20px;
+}
+
+.card .img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    
+}
+
+.card h2{
+    font-size: 3rem;
+    text-align: center;
+}
+.card p{
+    text-align: justify;
+}
