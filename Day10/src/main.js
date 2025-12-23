@@ -1,10 +1,31 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { ExpenseUI } from "./ui/expenseUI";
+import { UserService } from "./service/userService";
+import { ExpenseService } from "./service/expenseService";
+class ExpenseApp{
+  constructor(){
+    this.UserService=new UserService();
+    this.ExpenseService=new ExpenseService();
+    this.ui=null;
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+  }
+
+  init(){
+    try {
+      this.ui=new ExpenseUI(this.UserService,this.ExpenseService)
+      console.log("Splitter App Initialized Successfully")
+    } catch (error) {
+      console.log("Failed to Initialized App:",error)      
+    }
+  }
+}
+
+
+// new ExpenseApp() // It work but we use many
+
+
+let expenseApp;
+
+document.addEventListener("DOMContentLoaded",()=>{
+  expenseApp=new ExpenseApp;
+  expenseApp.init()
+})

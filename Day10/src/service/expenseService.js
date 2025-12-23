@@ -1,7 +1,7 @@
 import { Expense } from "../model/expense";
 import { UserService } from "./userService";
 
-class ExpenseService{
+export class ExpenseService{
     constructor(UserService){
         this.expense=[];
         // this.UserService=new UserService() // one way to create a new instance of userService
@@ -33,7 +33,7 @@ class ExpenseService{
     }
 
     simplifyExpenses(){
-        
+
     }
 
 
