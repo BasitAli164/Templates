@@ -4,16 +4,17 @@ import { ExpenseService } from "./service/expenseService";
 class ExpenseApp{
   constructor(){
     this.UserService=new UserService();
-    this.ExpenseService=new ExpenseService();
+    this.ExpenseService=new ExpenseService(this.UserService);
     this.ui=null;
 
   }
 
   init(){
+    console.log("object")
     try {
       this.ui=new ExpenseUI(this.UserService,this.ExpenseService)
       console.log("Splitter App Initialized Successfully")
-    } catch (error) {
+      } catch (error) {
       console.log("Failed to Initialized App:",error)      
     }
   }

@@ -39,7 +39,7 @@ export class UserService{
         return this.users.has(name)
     }
     getUserCount(){
-        return  this.users.size()
+        return  this.users.size
     }
     clear(){
         this.users.clear()
