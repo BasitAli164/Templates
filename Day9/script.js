@@ -12,6 +12,10 @@ for(let i=1;i<4;i++){
         const currentText=document.createTextNode(`Row ${i} and Col ${j}`)
         td.appendChild(currentText)
         tr.appendChild(td)
+
+        if(j==1){
+            td.style.backgroundColor='red'
+        }
     }
 
 
