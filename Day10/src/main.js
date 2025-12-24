@@ -10,7 +10,6 @@ class ExpenseApp{
   }
 
   init(){
-    console.log("object")
     try {
       this.ui=new ExpenseUI(this.UserService,this.ExpenseService)
       console.log("Splitter App Initialized Successfully")

@@ -23,6 +23,15 @@ export class UserUI {
   //binEvents
   binEvents(){
 
+
+    this.elements.addUserForm.addEventListener('submit',(e)=>{
+      this.handleAddUser(e)
+    })
+  }
+
+
+  handleAddUser(e){
+    e.preventDefault();
   }
   
 }
