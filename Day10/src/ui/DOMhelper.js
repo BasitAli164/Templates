@@ -32,4 +32,13 @@ export class DOMHelopers{
             element.removeChild(element.firstChild)
         }
     }
+
+    static appendFragment(parent,items,createItemFn){
+        const fragment=document.createDocumentFragment();
+        items.forEach(item=>{
+            fragment.appendChild(createItemFn(item))
+        });
+
+        parent.appendChild(fragment);
+    }
 }
