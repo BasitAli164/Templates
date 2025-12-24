@@ -1,28 +1,39 @@
 @import "tailwindcss";
 
-.gradient-bg{
+.gradient-bg {
     background: linear-gradient(135deg, #e66f91 0%, #7e851d 100%);
-} 
+}
 
-.glass-effect{
-    background: rgba(255, 255, 255,0.9);
+.glass-effect {
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 
 }
 
-.card-shadow{
+.card-shadow {
 
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
 
 }
 
-.expense-item{
+.expense-item {
     transition: all 0.3s ease;
     padding: 8px 12px;
     margin: 4px 0;
     border-radius: 8px;
-    background: linear-gradient(90deg,#f8fafc,#e2e8f0);
+    background: linear-gradient(90deg, #f8fafc, #e2e8f0);
     border-left: 4px solid #10b981;
+}
+
+.settlement-item {
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #f8fafc, #e2e8f0);
+    border-left: 4px solid #10b981;
+    border-right: 4px solid #10b981;
+
 }
