@@ -1,4 +1,4 @@
-export class User{
+export class UserModel{
     constructor(userName,userAge,userBio){
         if(!userName || typeof userName!=="string"){
             throw new Error(`User name must be a string`)
