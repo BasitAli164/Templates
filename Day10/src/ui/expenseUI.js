@@ -8,13 +8,14 @@ export class ExpenseUI {
 
     this.initializeElements();
     this.bindEvents();
-    // this.initializeSelectBox();
+    this.initializeSelectBox();
   }
   // initailize all the UI elements
   initializeElements() {
     this.elements = {
       addUserForm: DOMHelopers.getElementById("addUserForm"),
       userInput: DOMHelopers.getElementById("userInput"),
+      expenseUserInput:DOMHelopers.getElementById("expenseUserInput"),
     };
   }
 
@@ -24,6 +25,15 @@ export class ExpenseUI {
       this.handleAddUser(e);
     });
   }
+
+  // Initailize the select box
+
+  initializeSelectBox(){
+    const defaultOption=DOMHelopers.createOption("Select User ","")
+
+    this.elements.expenseUserInput.add(defaultOption)
+  }
+
 
   handleAddUser(e) {
     e.preventDefault();
@@ -41,6 +51,9 @@ export class ExpenseUI {
 
       const user = this.userService.addUser(name);
 
+      // add the use to the expense select box
+      this.addUserToSelect(user.name)
+
       // Reset the form
       this.elements.addUserForm.reset();
 
@@ -49,5 +62,11 @@ export class ExpenseUI {
     } catch (error) {
       console.log("Error adding user", error);
     }
+  }
+
+  addUserToSelect(userName){
+    const option=DOMHelopers.createOption(userName,userName)
+        this.elements.expenseUserInput.add(option)
+
   }
 }

@@ -30,3 +30,11 @@ document.addEventListener("DOMContentLoaded",()=>{
   expenseApp=new ExpenseApp;
   expenseApp.init()
 })
+
+
+window.addEventListener('load',()=>{
+  if(!ExpenseApp){
+    expenseApp=new ExpenseApp;
+    expenseApp.init()
+  }
+})
