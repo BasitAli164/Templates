@@ -47,15 +47,23 @@ export class ExpenseService{
         })
 
         this.expense.forEach(expense=>{
-            const share=expense/userCount;
+            const share=Math.floor(expense/userCount);
 
             userNames.forEach((name)=>{
                 if(name===expense.paidBy){
                     net[name]+=(expense.ammount-share)
+                }else{
+                    net[name]-=share
                 }
             })
         })
+        return this.calculateSettlements(net);
 
+    }
+
+
+    calculateSettlements(net){
+        console.log(net)
     }
 
 
