@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+<link rel="stylesheet" href="./src/index.css">
+
+  <style>
+    /* Custom Styles */
+    body {
+      background-color: #f9fafb; /* Light gray background */
+    }
+    li span {
+      word-break: break-word; /* prevent long text overflow */
+    }
+    li button {
+      transition: background-color 0.2s ease;
+    }
+    li button:hover {
+      background-color: #ef4444; /* red hover for delete button */
+      color: white;
+    }
+  </style>
 </head>
-<body>
-    <div class="contianer">
-        <form id="addUserForm">
-            <div>
-                <label>UserName:</label>
-                <input type="text" id="userName" placeholder="Enter user name">
-            </div>
-            <div>
-                <label>Age:</label>
-                <input type="number"  id="userAge" min="10" placeholder="Enter user age">
-            </div>
+<body class="flex flex-col items-center min-h-screen py-10">
 
-            <div>
-                <label>Bio:</label>
-                <input type="text"  id="userBio" placeholder="Enter user bio">
-            </div>
+  <h1 class="text-4xl font-bold mb-8 text-gray-800">Todo App</h1>
 
-            <button type="submit"> + new user </button>
-        </form>
-
-        <ul id="userDetail">
-
-        </ul>
+  <form id="todoForm" class="w-full max-w-md bg-white p-6 rounded-lg shadow-md mb-8">
+    <div class="mb-4">
+      <input type="text" id="todoTitle" placeholder="Todo title" required
+             class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
     </div>
+    <div class="mb-4">
+      <textarea id="todoDesc" placeholder="Todo description"
+                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+    </div>
+    <button type="submit"
+            class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition-colors">
+      Add Todo
+    </button>
+  </form>
 
-    <script type="module" src="./src/main.js"></script>
+  <ul id="todoList" class="w-full max-w-md space-y-4">
+    <!-- Todos will be injected here -->
+  </ul>
+
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>

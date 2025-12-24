@@ -1,32 +1,32 @@
-import { UserService } from "./service/userService";
-import { UserUI } from "./ui/UserUI";
+import { TodoUI } from "./ui/TodoUI.js";
+import { TodoService } from "./service/TodoService.js";
 
+class TodoApp {
+  constructor() {
+    this.todoService = new TodoService();
+    this.ui = null;
+  }
 
-class UserApp{
-    constructor(){
-        this.userService=new UserService();
-        this.ui=null;
+  init() {
+    try {
+      this.ui = new TodoUI(this.todoService);
+      console.log("Todo App Initialized Successfully");
+    } catch (error) {
+      console.error("Failed to initialize Todo App:", error);
     }
-
-    init(){
-        try {
-
-            this.ui=new UserUI(this.userService)
-            console.log("User App Initailize Successfully")
-
-            
-        } catch (error) {
-            console.log("Failed To Initialize App: ",error)
-            
-        }
-    }
+  }
 }
 
+let todoApp;
 
-let userApp;
+document.addEventListener("DOMContentLoaded", () => {
+  todoApp = new TodoApp();
+  todoApp.init();
+});
 
-
-document.addEventListener("DOMContentLoaded",()=>{
-    userApp=new UserApp();
-    userApp.init()
-})
+window.addEventListener("load", () => {
+  if (!todoApp) {
+    todoApp = new TodoApp();
+    todoApp.init();
+  }
+});
