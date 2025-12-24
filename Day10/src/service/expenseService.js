@@ -47,7 +47,7 @@ export class ExpenseService{
         })
 
         this.expense.forEach(expense=>{
-            const share=Math.floor(expense/userCount);
+            const share=Math.floor(expense.ammount/userCount);
 
             userNames.forEach((name)=>{
                 if(name===expense.paidBy){
@@ -63,7 +63,40 @@ export class ExpenseService{
 
 
     calculateSettlements(net){
-        console.log(net)
+
+        const result=[]
+        // Filter out Balanced Peopless
+        const name=Object.keys(net).filter(
+            (name)=>Math.abs(net[name])>0.01
+        )
+
+        // sort by balance
+        name.sort((a,b)=>net[a]-net[b])
+
+
+        // Tow pointer Technique
+        let i=0
+        let j=name.length-1
+
+        while(i<j){
+            const  creditor=name[j]
+            const debtor=name[i];
+            const settlement=Math.min(-net[debtor],net[creditor])
+
+
+            if(settlement>0.01){
+                net[debtor]+=settlement;
+                net[creditor]-=settlement;
+
+                result.push(
+                    `${debtor} owes ${creditor} Rs./ ${settlement.toFixed(2)}`
+                )
+            }
+            if(Math.abs(net[debtor])<0.01) i++;
+            if(Math.abs(net[creditor])<0.01) j--;
+
+        }
+        return result
     }
 
 

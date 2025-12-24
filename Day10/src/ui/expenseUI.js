@@ -157,6 +157,18 @@ export class ExpenseUI {
   }
 
   displayResult(results){
+    console.log("result: ",results)
+
+    DOMHelopers.clearElement(this.elements.resultArea)
+
+    if(results.length===0){
+      const noResultsItem=DOMHelopers.createListItem("All Expense are settled!","no-results")
+      this.elements.resultArea.appendChild(noResultsItem)
+
+      return;
+    }
+
+    
 
 
   }

@@ -26,4 +26,10 @@ export class DOMHelopers{
         return li
 
     }
+
+    static clearElement(element){
+        while(element.firstChild){
+            element.removeChild(element.firstChild)
+        }
+    }
 }
