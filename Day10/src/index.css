@@ -17,3 +17,12 @@
 
 
 }
+
+.expense-item{
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 8px;
+    background: linear-gradient(90deg,#f8fafc,#e2e8f0);
+    border-left: 4px solid #10b981;
+}

@@ -12,7 +12,7 @@ export class Expense {
     this.ammount = parseFloat(ammount.toFixed(2));
     this.description = description;
     this.timeStamp = new Date().toISOString();
-    this.id = generateId();
+    this.id = this.generateId();
   }
 
   generateId() {

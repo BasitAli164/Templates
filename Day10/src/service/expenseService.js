@@ -1,5 +1,4 @@
 import { Expense } from "../model/expense";
-import { UserService } from "./userService";
 
 export class ExpenseService{
     constructor(UserService){
@@ -33,6 +32,29 @@ export class ExpenseService{
     }
 
     simplifyExpenses(){
+        // console.log("Simplifying Expense",this.expense)
+        const userCount=this.userService.getUserCount();
+        if(userCount===0){
+            return [];
+        }
+
+        const net={};
+        const userNames=this.userService.getUserNames()
+
+
+        userNames.forEach(name=>{
+            net[name]=0;
+        })
+
+        this.expense.forEach(expense=>{
+            const share=expense/userCount;
+
+            userNames.forEach((name)=>{
+                if(name===expense.paidBy){
+                    net[name]+=(expense.ammount-share)
+                }
+            })
+        })
 
     }
 
