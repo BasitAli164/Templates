@@ -32,6 +32,29 @@ export class UserUI {
 
   handleAddUser(e){
     e.preventDefault();
+    try {
+      
+      let userName=this.elements.userName.value.trim();
+      if(!userName){
+        throw new Error("user name is mandatory");
+      }
+
+      let userAge=this.elements.userAge.valueAsNumber;
+      if(!userAge || userAge<=0){
+        throw new Error("user age is mandatory");
+      }
+
+      let userBio=this.elements.userBio.value.trim();
+
+
+      const newAddUser=this.userService.addUser(userName,userAge,userBio)
+      console.log(newAddUser)
+    } catch (error) {
+      console.error("Error Adding User:",error)
+      
+    }
+
+    
   }
   
 }
