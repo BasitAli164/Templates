@@ -4,46 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo App</title>
-<link rel="stylesheet" href="./src/index.css">
 
+    <link rel="stylesheet" href="./src/index.css">
   <style>
-    /* Custom Styles */
+    /* Custom styles for todo items */
     body {
-      background-color: #f9fafb; /* Light gray background */
+      background-color: #f0f4f8; /* light background */
     }
     li span {
-      word-break: break-word; /* prevent long text overflow */
+      word-break: break-word;
     }
     li button {
-      transition: background-color 0.2s ease;
+      transition: all 0.2s ease-in-out;
     }
     li button:hover {
-      background-color: #ef4444; /* red hover for delete button */
-      color: white;
+      transform: scale(1.05);
+    }
+    .completed span {
+      text-decoration: line-through;
+      color: #9ca3af; /* gray text for completed */
     }
   </style>
 </head>
 <body class="flex flex-col items-center min-h-screen py-10">
 
-  <h1 class="text-4xl font-bold mb-8 text-gray-800">Todo App</h1>
+  <h1 class="text-5xl font-extrabold mb-10 text-gray-900">Todo App</h1>
 
-  <form id="todoForm" class="w-full max-w-md bg-white p-6 rounded-lg shadow-md mb-8">
-    <div class="mb-4">
+  <!-- Todo Form Card -->
+  <form id="todoForm" class="w-full max-w-lg bg-white p-8 rounded-xl shadow-lg mb-10">
+    <div class="mb-5">
       <input type="text" id="todoTitle" placeholder="Todo title" required
-             class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+             class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 placeholder-gray-400 text-lg">
     </div>
-    <div class="mb-4">
+    <div class="mb-5">
       <textarea id="todoDesc" placeholder="Todo description"
-                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+                class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 placeholder-gray-400 text-lg"></textarea>
     </div>
     <button type="submit"
-            class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition-colors">
+            class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 shadow-md hover:shadow-lg transition-all text-lg">
       Add Todo
     </button>
   </form>
 
-  <ul id="todoList" class="w-full max-w-md space-y-4">
-    <!-- Todos will be injected here -->
+  <!-- Todo List -->
+  <ul id="todoList" class="w-full max-w-lg space-y-4">
+    <!-- Todos will be injected here dynamically -->
   </ul>
 
   <script type="module" src="./src/main.js"></script>
