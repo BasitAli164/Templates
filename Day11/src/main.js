@@ -1,5 +1,5 @@
-const UserService=require('./service/userService.js') 
-const UserUI= require('./ui/UserUI.js')
+import { UserService } from "./service/userService";
+import { UserUI } from "./ui/UserUI";
 
 
 
