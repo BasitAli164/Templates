@@ -24,6 +24,7 @@ export class DOMHelopers{
         if(className){
 
             li.className=className
+            
         }
         return li
 
