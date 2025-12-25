@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+
+body{
+    background: linear-gradient(130deg,#abcef9,#cac297);
+}
+
+.container{
+    background: linear-gradient(45deg, #c6c9f4,#e9e5ad);
+    box-shadow: 4px 2px 12px 14px #72746c;
+}
