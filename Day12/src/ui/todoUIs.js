@@ -2,5 +2,10 @@
 
 
 export class UiOfTodo{
-    constructor(todoService)
+    constructor(todoService){
+        this.todoService=todoService
+
+
+       
+    }
 }
