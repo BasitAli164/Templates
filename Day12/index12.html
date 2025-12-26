@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/index.css">
+    <title>Todo App</title>
+</head>
+<body class="h-screen w-full bg-amber-100 flex flex-col gap-10 justify-center items-center ">
+
+    <h1 class="text-center font-bold text-4xl mb-4 text-blue-500">Todo App</h1>
+    <div class="border-none outline-offset-4 outline-2 outline-amber-50 w-1/2 h-auto  rounded-2xl container ">
+        <form id="addTodoForm" class="text-center">
+            <div>
+                <input type="text" id="todoTitle" placeholder="Enter Todo title" class="w-11/12 border-none outline-none px-8 py-4 bg-amber-100 rounded-4xl placeholder:text-xl placeholder:capitalize text-xl mt-10">
+            </div>
+            <div>
+                <textarea name="" id="todoDescription" placeholder="Enter todo description"  class="w-11/12 border-none outline-none px-8 py-4 bg-amber-100 rounded-xl placeholder:text-xl placeholder:capitalize text-xl my-4" rows="4" ></textarea>
+            </div>
+
+            <button type="submit" class="px-8 py-4 rounded-full bg-amber-200 mb-4 font-semibold cursor-pointer">Add Todo</button>
+
+        </form>
+
+        
+
+    </div>
+    <ul class="border w-1/2 h-auto">
+        
+    </ul>
+    
+</body>
+</html>
