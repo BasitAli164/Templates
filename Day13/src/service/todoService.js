@@ -28,6 +28,11 @@ export class TodoService{
         return newTodo
     }
 
+
+    getAllTodo(){
+        return JSON.parse(localStorage.getItem("todo"))
+    }
+
     
 
 

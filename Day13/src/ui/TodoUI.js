@@ -3,9 +3,9 @@ import { DOMHeloper } from "./DOMHelper";
 export class TodoUI {
   constructor(todoService) {
     this.todoService = todoService;
-
     this.initailizeElements();
     this.bindEvents();
+    this.getAll();
   }
 
   initailizeElements() {
@@ -13,18 +13,15 @@ export class TodoUI {
       addTodoForm: DOMHeloper.getElementById("addTodoForm"),
       todoTitle: DOMHeloper.getElementById("todoTitle"),
       todoDescription: DOMHeloper.getElementById("todoDescription"),
+      resultArea:DOMHeloper.getElementById("resultArea")
     };
   }
 
-  bindEvents(){
-
-    this.elements.addTodoForm.addEventListener('submit',(e)=>{
-      this.handleAddTodo(e)
+  bindEvents() {
+    this.elements.addTodoForm.addEventListener("submit", (e) => {
+      this.handleAddTodo(e);
     });
-
   }
-   
-  
 
   handleAddTodo(e) {
     e.preventDefault();
@@ -45,13 +42,27 @@ export class TodoUI {
 
       const newlyAddedToda = this.todoService.addTodo(title, desc);
 
+      this.renderTodo(newlyAddedToda)
 
-      this.elements.addTodoForm.reset()
+      this.elements.addTodoForm.reset();
 
       console.log("New Todo Added ", newlyAddedToda);
     } catch (error) {
       console.error("Error face during add new todo", error);
     }
+  }
+  getAll(){
+
+    const allTodo=this.todoService.getAllTodo()
+    console.log(allTodo,"all")
+   
+
+    allTodo.forEach((todo)=>{
+
+      const design=DOMHeloper.createElements(todo.title,todo.description,"container")
+      this.elements.resultArea.appendChild(design)
+    })
+
   }
 
 }
