@@ -16,7 +16,7 @@ class TodoApp{
             
         } catch (error) {
             
-            console.error("App is not initailize")
+            console.error("App is not initailize",error)
         }
 
 

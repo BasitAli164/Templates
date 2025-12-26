@@ -30,6 +30,7 @@ export class ExpenseUI {
     this.elements.addUserForm.addEventListener("submit", (e) => {
       this.handleAddUser(e);
     });
+    
 
     this.elements.addExpenseForm.addEventListener("submit", (e) => {
       this.handleAddExpense(e);
