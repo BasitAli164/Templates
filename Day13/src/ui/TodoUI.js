@@ -5,7 +5,7 @@ export class TodoUI {
     this.todoService = todoService;
     this.initailizeElements();
     this.bindEvents();
-    this.getAll();
+    this.handleFetchAllTodo();
   }
 
   initailizeElements() {
@@ -51,18 +51,30 @@ export class TodoUI {
       console.error("Error face during add new todo", error);
     }
   }
-  getAll(){
+  handleFetchAllTodo(){
 
     const allTodo=this.todoService.getAllTodo()
     console.log(allTodo,"all")
+
+
+    const classObj={
+      container:"container",
+      leftBox:"leftBox",
+      rightBox:"rightBox",
+      btn:"btn"
+    }
    
 
     allTodo.forEach((todo)=>{
 
-      const design=DOMHeloper.createElements(todo.title,todo.description,"container")
+      const design=DOMHeloper.createElements(todo.title,todo.description,classObj)
       this.elements.resultArea.appendChild(design)
     })
 
+  }
+
+  handleDeleteTodo(){
+    
   }
 
 }

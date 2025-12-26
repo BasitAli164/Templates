@@ -12,7 +12,7 @@ export class DOMHeloper{
     }
 
 
-    static createElements(title,description,className){
+    static createElements(title,description,classNameObj){
 
         // craete all required elements
         const containerDiv=document.createElement('div');
@@ -36,8 +36,13 @@ export class DOMHeloper{
 
 
         // add className
-        if(className){
-            containerDiv.className=className
+
+        if(classNameObj && Object.keys(classNameObj).length>0){
+            containerDiv.className=classNameObj.container;
+            leftBox.className=classNameObj.leftBox;
+            rightBox.className=classNameObj.rightBox;
+            editBtn.className=classNameObj.btn;
+            deleteBtn.className=classNameObj.btn;
         }
 
 

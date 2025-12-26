@@ -33,6 +33,10 @@ export class TodoService{
         return JSON.parse(localStorage.getItem("todo"))
     }
 
+
+    deleteTodo(id){
+        localStorage.removeItem(id)
+    }
     
 
 
