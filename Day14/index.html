@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Todo App (CRUD + LocalStorage)</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fb;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .container {
+      width: 420px;
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    h2 { margin: 0 0 15px; }
+
+    .input-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    button {
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: none;
+      background: #4a6cf7;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:disabled { background: #9ba7ff; cursor: not-allowed; }
+
+    ul { list-style: none; padding: 0; }
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f7f8ff;
+      margin-bottom: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+    }
+
+    .left { display: flex; align-items: center; gap: 8px; }
+
+    .task.done span { text-decoration: line-through; color: gray; }
+
+    .actions button {
+      margin-left: 6px;
+      background: #ddd;
+      color: #333;
+    }
+
+    .actions .delete { background: #ff4d4d; color: white; }
+    .actions .edit { background: #ffc107; color: black; }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Todo App</h2>
+
+    <div class="input-group">
+      <input id="taskInput" type="text" placeholder="Enter task..." />
+      <button id="addBtn">Add</button>
+    </div>
+
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    const taskInput = document.getElementById("taskInput");
+    const taskList = document.getElementById("taskList");
+    const addBtn = document.getElementById("addBtn");
+
+    let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+    // Save to localStorage
+    function saveTodos() {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }
+
+    // Render UI
+    function render() {
+      taskList.innerHTML = "";
+
+      todos.forEach((todo, index) => {
+        const li = document.createElement("li");
+        li.className = todo.done ? "task done" : "task";
+
+        li.innerHTML = `
+          <div class="left">
+            <input type="checkbox" ${todo.done ? "checked" : ""} onclick="toggleDone(${index})" />
+            <span>${todo.text}</span>
+          </div>
+
+          <div class="actions">
+            <button class="edit" onclick="editTask(${index})">Edit</button>
+            <button class="delete" onclick="deleteTask(${index})">Delete</button>
+          </div>
+        `;
+
+        taskList.appendChild(li);
+      });
+
+      saveTodos();
+    }
+
+    // Add new task
+    addBtn.addEventListener("click", () => {
+      const text = taskInput.value.trim();
+      if (!text) return;
+
+      todos.push({ text, done: false });
+      taskInput.value = "";
+      render();
+    });
+
+    // Toggle complete
+    window.toggleDone = function (index) {
+      todos[index].done = !todos[index].done;
+      render();
+    };
+
+    // Edit task
+    window.editTask = function (index) {
+      const newText = prompt("Edit task:", todos[index].text);
+      if (newText !== null && newText.trim() !== "") {
+        todos[index].text = newText.trim();
+        render();
+      }
+    };
+
+    // Delete task
+    window.deleteTask = function (index) {
+      todos.splice(index, 1);
+      render();
+    };
+
+    // Initial render
+    render();
+  </script>
+</body>
+</html>
