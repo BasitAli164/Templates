@@ -45,6 +45,9 @@ export class TodoUI {
 
       const newlyAddedToda = this.todoService.addTodo(title, desc);
 
+
+      this.elements.addTodoForm.reset()
+
       console.log("New Todo Added ", newlyAddedToda);
     } catch (error) {
       console.error("Error face during add new todo", error);
