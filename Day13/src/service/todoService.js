@@ -11,7 +11,7 @@ export class TodoService{
     }
 
     saveToStorage(){
-        localStorage.setItem('todo',JSON.stringify([...this.todoStore.values]))
+        localStorage.setItem('todo',JSON.stringify([...this.todoStore.values()]))
     }
 
 

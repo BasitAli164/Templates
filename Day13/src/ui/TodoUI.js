@@ -5,22 +5,23 @@ export class TodoUI {
     this.todoService = todoService;
 
     this.initailizeElements();
-    this.bindEvents()
+    this.bindEvents();
   }
 
   initailizeElements() {
-    this.element = {
+    this.elements = {
+      addTodoForm: DOMHeloper.getElementById("addTodoForm"),
       todoTitle: DOMHeloper.getElementById("todoTitle"),
       todoDescription: DOMHeloper.getElementById("todoDescription"),
-      addTodoForm: DOMHeloper.getElementById("addTodoForm")
     };
-    // console.log(" Elements inside the initailizeEelemtn",element)
   }
 
   bindEvents(){
-    this.element.addTodoForm.addEventListener('submit',(e)=>{
+
+    this.elements.addTodoForm.addEventListener('submit',(e)=>{
       this.handleAddTodo(e)
-    })
+    });
+
   }
    
   
@@ -30,8 +31,8 @@ export class TodoUI {
 
     try {
       // get value form elements
-      const title = this.element.todoTitle.value.trim();
-      const desc = this.element.todoDescription.value.trim();
+      const title = this.elements.todoTitle.value.trim();
+      const desc = this.elements.todoDescription.value;
 
       if (!title) {
         throw new Error("Title is mandatory");

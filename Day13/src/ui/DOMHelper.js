@@ -7,6 +7,7 @@ export class DOMHeloper{
         if(!element){
             throw new Error(`Element with ${id} not Found`)
         }
+        return element
 
     }
 }
