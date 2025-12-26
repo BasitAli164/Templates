@@ -1,44 +1,41 @@
 import { Todo } from "../models/todo";
 
+export class TodoService {
+  constructor() {
+    this.todoStore = new Map();
+    const save = localStorage.getItem("todo");
+    if (save) {
+      JSON.parse(save).forEach((todo) => this.todoStore.set(todo.id, todo));
+    }
+  }
 
-export class TodoService{
-    constructor(){
-        this.todoStore=new Map();
-        const save=localStorage.getItem('todo');
-        if(save){
-            JSON.parse(save).forEach(todo=>this.todoStore.set(todo.id,todo))
-        }
+  saveToStorage() {
+    localStorage.setItem("todo", JSON.stringify([...this.todoStore.values()]));
+  }
+
+  addTodo(title, description) {
+    if (!title) {
+      throw new Error("Title is mandatory");
     }
 
-    saveToStorage(){
-        localStorage.setItem('todo',JSON.stringify([...this.todoStore.values()]))
+    const trimTitle = title.trim();
+    const newTodo = new Todo(trimTitle, description);
+    this.todoStore.set(newTodo.id, newTodo);
+    this.saveToStorage();
+
+    return newTodo;
+  }
+
+  getAllTodo() {
+    return [...this.todoStore.values()];
+  }
+
+  deleteTodo(id) {
+    if (this.todoStore.has(id)) {
+      this.todoStore.delete(id);
+      this.saveToStorage();
+    } else {
+      console.error(`This  Todo ID  ${id} is not found`);
     }
-
-
-    addTodo(title,description){
-        if(!title){
-            throw new Error("Title is mandatory")
-        }
-
-        const trimTitle=title.trim()
-        const newTodo=new Todo(trimTitle,description)
-        this.todoStore.set(newTodo.id,newTodo)
-        this.saveToStorage()
-
-        return newTodo
-    }
-
-
-    getAllTodo(){
-        return JSON.parse(localStorage.getItem("todo"))
-    }
-
-
-    deleteTodo(id){
-        localStorage.removeItem(id)
-    }
-    
-
-
-
+  }
 }

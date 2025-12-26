@@ -33,7 +33,10 @@ export class DOMHeloper{
         editBtn.textContent="Edit";
         deleteBtn.textContent="Delete";
         checkbox.type="checkbox";
+        
 
+        //set id of delete and edit btn
+        deleteBtn.id="delTodo"
 
         // add className
 

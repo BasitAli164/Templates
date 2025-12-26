@@ -13,7 +13,8 @@ export class TodoUI {
       addTodoForm: DOMHeloper.getElementById("addTodoForm"),
       todoTitle: DOMHeloper.getElementById("todoTitle"),
       todoDescription: DOMHeloper.getElementById("todoDescription"),
-      resultArea:DOMHeloper.getElementById("resultArea")
+      resultArea:DOMHeloper.getElementById("resultArea"),
+      delTodo:DOMHeloper.getElementById("delTodo")
     };
   }
 
@@ -21,6 +22,10 @@ export class TodoUI {
     this.elements.addTodoForm.addEventListener("submit", (e) => {
       this.handleAddTodo(e);
     });
+
+    this.elements.delTodo.addEventListener("click",()=>{
+      this.handleDeleteTodo();
+    })
   }
 
   handleAddTodo(e) {
@@ -74,7 +79,9 @@ export class TodoUI {
   }
 
   handleDeleteTodo(){
-    
+      this.todoService.deleteTodo(this.elements.delTodo)
+
+
   }
 
 }
