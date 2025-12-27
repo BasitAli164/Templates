@@ -73,9 +73,10 @@ input:focus {
     margin-top: 20px;
     background: aqua;
     border-radius: 10px;
-    
+
 }
-.textArea li{
+
+.textArea li {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,14 +84,15 @@ input:focus {
     background-color: antiquewhite;
     padding: 12px 15px;
 }
-.textArea .left{
+
+.textArea .left {
     width: 70%;
     display: flex;
     background-color: rgb(19, 223, 128);
     gap: 5px;
 }
 
-.textArea .right{
+.textArea .right {
     width: 25%;
     display: flex;
     justify-content: center;
@@ -98,7 +100,7 @@ input:focus {
     gap: 5px;
 }
 
-.textArea .right button{
+.textArea .right button {
     padding: 8px 20px;
     border-radius: 5px;
     border: none;
@@ -106,23 +108,25 @@ input:focus {
     font-weight: 600;
     cursor: pointer;
 }
-.textArea .right .editBtn{
+
+.textArea .right .editBtn {
     background-color: #4a6cf7;
     color: white;
 }
-.textArea .right .deleteBtn{
+
+.textArea .right .deleteBtn {
     background-color: rgb(240, 38, 38);
     color: white;
 }
 
 
-.left .done{
+.left .done {
     text-decoration: line-through;
     text-decoration-color: rgb(226, 50, 50);
 }
 
 
-li{
+li {
     list-style: none;
 }
 
