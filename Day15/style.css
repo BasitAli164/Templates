@@ -116,20 +116,14 @@ input:focus {
 }
 
 
-.todo.done{
-    text-decoration: underline;
+.left .done{
+    text-decoration: line-through;
     text-decoration-color: rgb(226, 50, 50);
 }
 
 
 li{
     list-style: none;
-}
-
-
-
-.dynamicItem{
-    background-color: aqua;
 }
 
 @media (width<1050px) {

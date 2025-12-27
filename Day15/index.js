@@ -20,7 +20,7 @@ addBtn.addEventListener("click", () => {
     throw new Error("Title is not avaiable in input field ");
   }
 
-  const id = Math.random();
+  const id = crypto.randomUUID();
   todos.push({ id, text, done: false });
   saveToLocalStorage();
   textInput.value = "";
@@ -36,9 +36,9 @@ function render() {
     li.innerHTML = `
     <div class="left">
     <input type="checkbox" ${
-      todo.done ? "checked" : ""
+      todo.done ? "checked" : "" 
     } onclick="toggle(${index})" />
-    <span>${todo.text}</span>
+    <span class="${todo.done?"done":""}">${todo.text}</span>
     </div>
     <div class="right">
     <button class="editBtn" onclick="editTodo(${index})">Edit</button>
