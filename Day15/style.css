@@ -73,6 +73,16 @@ input:focus {
 }
 
 
+.todo.done{
+    text-decoration: underline;
+    text-decoration-color: rgb(226, 50, 50);
+}
+
+
+li{
+    list-style: none;
+}
+
 @media (width<1050px) {
     .container {
         width: 50%;
