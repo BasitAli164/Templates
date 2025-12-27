@@ -69,7 +69,50 @@ input:focus {
 
 
 .textArea {
+    width: 50%;
     margin-top: 20px;
+    background: aqua;
+    border-radius: 10px;
+    
+}
+.textArea li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    background-color: antiquewhite;
+    padding: 12px 15px;
+}
+.textArea .left{
+    width: 70%;
+    display: flex;
+    background-color: rgb(19, 223, 128);
+    gap: 5px;
+}
+
+.textArea .right{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.textArea .right button{
+    padding: 8px 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+.textArea .right .editBtn{
+    background-color: #4a6cf7;
+    color: white;
+}
+.textArea .right .deleteBtn{
+    background-color: rgb(240, 38, 38);
+    color: white;
 }
 
 
@@ -81,6 +124,12 @@ input:focus {
 
 li{
     list-style: none;
+}
+
+
+
+.dynamicItem{
+    background-color: aqua;
 }
 
 @media (width<1050px) {
