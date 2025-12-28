@@ -121,6 +121,7 @@ form button{
     padding: 10px;
     border-radius: 10px;
     justify-content: space-between;
+    align-items: center;
 }
 .taskItem button{
     padding: 8px 20px;
@@ -131,4 +132,21 @@ form button{
     background-color: var(--purple);
     color: var(--text);
     font-weight: bold;
+}
+.task{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.task input{
+    width: 20px;
+    height: 20px;
+    margin: 0px 10px;
+    cursor: pointer;
+}
+
+.complete p{
+    text-decoration: line-through;
+    color: var(--teal);
+    background-color: red;
 }

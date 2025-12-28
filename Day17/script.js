@@ -4,7 +4,8 @@ let task = []; // create data structure to store task
 
 let newTask = document.getElementById("newTask");
 let taskList = document.getElementById("tasklist");
-const taskInput = document.getElementById("taskInput");
+let taskInput = document.getElementById("taskInput");
+
 
 console.log(taskList)
 
@@ -17,6 +18,7 @@ function addTask() {
   
   task.push({  text: text, complete: false });
   updateTaskList();
+  newTask.reset();
 }
 
 function updateTaskList() {
@@ -25,8 +27,8 @@ function updateTaskList() {
   task.forEach((task,index) => {
     const listItem = document.createElement("li");
     listItem.innerHTML = `
-        <div class="taskItem ${task.complete ? "completed" : ""}">
-         <div class="task">
+        <div class="taskItem ">
+         <div class="task ${task.complete ? 'complete' : ''}">
          <input type="checkbox" class="checkBox" ${
            task.complete ? "checked" : ""
          }/>
@@ -43,7 +45,7 @@ function updateTaskList() {
 
         `;
     taskList.appendChild(listItem);
-    listItem.addEventListener("change", () => toggleTaskComplete(task.id));
+    listItem.addEventListener("change", () => toggleTaskComplete(index));
   });
 }
 
@@ -58,9 +60,15 @@ function deleteTask(id) {
 
 
     }
-function editTask() {
-  console.log(id);
+function editTask(id) {
+    const text=task[id].text;
+    task.splice(id,1)
+    updateTaskList()
+    console.log(text)
+  
 }
 function toggleTaskComplete(id) {
-  console.log(id);
+  task[id].complete=!task[id].complete
+      console.log(task)
+
 }
