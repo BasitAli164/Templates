@@ -23,27 +23,42 @@ newTask.addEventListener("submit", (e) => {
   }
   const id = Math.random().toFixed(2) * 10;
 
-  stores.set(id, text);
-  render()
-  saveToLocalStorage();
+  stores.set(id, { text });
+  render();
   newTask.reset();
 });
 
 function render() {
-    taskList.innerHTML=""
-    stores.forEach((todo,id)=>{
-        const listItem=document.createElement("li");
-        listItem.innerHTML=`
+  taskList.innerHTML = "";
+  stores.forEach((todo, id) => {
+    const listItem = document.createElement("li");
+    listItem.innerHTML = `
+        <div>
+            <p>${todo.text}</p>
+            <button  onclick="del(${id})">delete</button>
+            <button  onclick="edit(${id})">edit</button>
         
-        
-        
-        
-        
-        
-        
-        `
-    taskList.appendChild(listItem)
-    })
-    console.log(taskList)
-    
+        </div> 
+            `;
+    taskList.appendChild(listItem);
+  });
+  saveToLocalStorage();
 }
+
+
+function del(id){
+    stores.delete(id)
+    render()
+}
+
+function edit(id){
+    let todo=stores.get(id)
+    const editText=prompt("Do you want to update text",todo.text)
+    console.log("edit text:",editText)
+    if(editText){
+        todo.text=editText.trim()
+        render()
+    }
+}
+
+render()
