@@ -43,6 +43,7 @@ addUserForm.addEventListener("submit", (e) => {
 
 function render() {
   userList.innerHTML = "";
+  
 
   users.forEach((user, index) => {
     let box = document.createElement("div");
