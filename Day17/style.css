@@ -16,6 +16,7 @@ html,
 body {
     background-color: var(--background);
     color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
@@ -23,59 +24,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid red;
     margin: 120px auto 0 auto;
     max-width: 500px;
 }
 
-.statsContainer {
-    border: 2px solid var(--purple);
-    padding: 30px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-    width: 100%;
-}
-
-.detail {
-    border: 1px solid yellow;
-    width: 100%;
-}
-
-#numbers {
-    width: 100px;
-    height: 100px;
-    background-color: var(--purple);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-#progressBar {
-    width: 100%;
-    height: 10px;
-    background-color: var(--secondaryBackground);
-    border-radius: 5px;
-    margin-top: 20px;
-
-}
-
-#progress {
-    width: 80%;
-    height: 10px;
-    background-color: var(--teal);
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
 
 
 form {
-    margin-top: 60px;
+    margin-top: 20px;
     width: 100%;
     display: flex;
     gap: 10px;
@@ -104,49 +60,4 @@ form button{
     font-size: 30px;
     font-weight: bold;
     color: var(--text);
-}
-#tasklist{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 30px;
-    border: 3px solid white;
-    width: 100%;
-    list-style: none;
-}
-
-.taskItem{
-    display: flex;
-    background-color: var(--secondaryBackground);
-    padding: 10px;
-    border-radius: 10px;
-    justify-content: space-between;
-    align-items: center;
-}
-.taskItem button{
-    padding: 8px 20px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    background-color: var(--purple);
-    color: var(--text);
-    font-weight: bold;
-}
-.task{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.task input{
-    width: 20px;
-    height: 20px;
-    margin: 0px 10px;
-    cursor: pointer;
-}
-
-.complete p{
-    text-decoration: line-through;
-    color: var(--teal);
-    background-color: red;
 }
