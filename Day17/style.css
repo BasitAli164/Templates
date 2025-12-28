@@ -105,3 +105,30 @@ form button{
     font-weight: bold;
     color: var(--text);
 }
+#tasklist{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+    border: 3px solid white;
+    width: 100%;
+    list-style: none;
+}
+
+.taskItem{
+    display: flex;
+    background-color: var(--secondaryBackground);
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+.taskItem button{
+    padding: 8px 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: var(--purple);
+    color: var(--text);
+    font-weight: bold;
+}

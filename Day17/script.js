@@ -14,15 +14,15 @@ function addTask() {
   if (!text) {
     throw new Error("There is not task you write ");
   }
-  let id = crypto.randomUUID();
-  task.push({ id: id, text: text, complete: false });
+  
+  task.push({  text: text, complete: false });
   updateTaskList();
 }
 
 function updateTaskList() {
   taskList.innerHTML = "";
 
-  task.forEach((task) => {
+  task.forEach((task,index) => {
     const listItem = document.createElement("li");
     listItem.innerHTML = `
         <div class="taskItem ${task.complete ? "completed" : ""}">
@@ -34,8 +34,8 @@ function updateTaskList() {
          </div>
 
          <div class="icons">
-         <button onClick="editTask(${task.id})">Edit</button>
-         <button onClick="deleteTask(${task.id})">Delete</button>
+         <button onclick="editTask(${index})">Edit</button>
+         <button onclick="deleteTask(${index})">Delete</button>
          
          
          </div>        
@@ -53,8 +53,11 @@ newTask.addEventListener("submit", (e) => {
 });
 
 function deleteTask(id) {
-  console.log(id);
-}
+    task.splice(id,1)
+    updateTaskList()
+
+
+    }
 function editTask() {
   console.log(id);
 }
