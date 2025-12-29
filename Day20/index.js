@@ -40,11 +40,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function renderTasks() {
     const fragment = document.createDocumentFragment();
+    console.log(fragment)
 
     if (stores.length === 0) {
       const li = document.createElement("li");
       li.textContent = "No tasks yet";
-      li.className = "text-gray-400 p-4";
       fragment.appendChild(li);
     } else {
       stores.forEach((task) => {
