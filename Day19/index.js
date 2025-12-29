@@ -204,6 +204,19 @@ window.addEventListener("DOMContentLoaded", () => {
     return li;
   }
 
+  function attachTaskEventListeners() {
+    document.querySelectorAll(".checkbox").forEach((checkbox) => {
+      checkbox.addEventListener("change", toggleTask);
+    });
+
+    document.querySelectorAll(".delete-btn").forEach((btn) => {
+      btn.addEventListener("click", deleteTask);
+    });
+
+    document.querySelectorAll(".edit-btn").forEach((btn) => {
+      btn.addEventListener("click", editTask);
+    });
+  }
   function sortTasks(tasksToSort) {
     switch (currentSort) {
       case "newest":
@@ -266,5 +279,218 @@ window.addEventListener("DOMContentLoaded", () => {
       high: "fas fa-arrow-up",
     };
     return icons[priority] || icons.medium;
+  }
+
+  function toggleTask(e) {
+    const taskId = parseInt(e.target.closest(".task-item").dataset.id);
+    const task = tasks.find((t) => t.id === taskId);
+
+    if (task) {
+      task.completed = e.target.checked;
+      task.completedAt = task.completed ? new Date() : null;
+      saveTask();
+      renderTasks();
+      updateStats();
+
+      if (task.completed) {
+        e.target.closest(".task-item").classList.add("bg-green-50");
+        setTimeout(() => {
+          e.target.closest(".task-item").classList.remove("bg-green-50");
+        }, 1000);
+      }
+    }
+  }
+
+  function deleteTask(e) {
+    const taskId = parseInt(e.target.closest(".task-item").dataset.id);
+    tasks = tasks.filter((t) => t.id != taskId);
+    saveTask();
+    renderTasks();
+    updateStats();
+
+    const taskItem = e.target.closest(".task-item");
+    taskItem.classList.add("opacity-0", "transition", "duration-300");
+
+    setTimeout(() => {
+      taskItem.remove();
+      if (tasks.lenght === 0) {
+        renderTasks();
+      }
+    }, 300);
+  }
+
+  function editTask(e) {
+    const taskItem = e.target.closest(".task-item");
+    const taskId = parseInt(taskItem.dataset.id);
+    const task = tasks.find((t) => t.id === taskId);
+
+    if (task) {
+      const currentText = task.text;
+      const editForm = document.createElement("div");
+      editForm.classList = "flex flex-col gap-3 w-full";
+
+      editForm.innerHTML = `
+                    <input 
+                        type="text" 
+                        value="${currentText}" 
+                        class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-1 focus:ring-violet-500 text-base"
+                    >
+                    <div class="flex flex-wrap gap-3">
+                        <select id="edit-category" class="flex-1 px-4 py-2 rounded-lg border focus:outline-none">
+                            <option value="general" ${
+                              task.category === "general" ? "selected" : ""
+                            }>General</option>
+                            <option value="work" ${
+                              task.category === "work" ? "selected" : ""
+                            }>Work</option>
+                            <option value="personal" ${
+                              task.category === "personal" ? "selected" : ""
+                            }>Personal</option>
+                            <option value="shopping" ${
+                              task.category === "shopping" ? "selected" : ""
+                            }>Shopping</option>
+                            <option value="health" ${
+                              task.category === "health" ? "selected" : ""
+                            }>Health</option>
+                        </select>
+                        <select id="edit-priority" class="flex-1 px-4 py-2 rounded-lg border focus:outline-none">
+                            <option value="low" ${
+                              task.priority === "low" ? "selected" : ""
+                            }>Low Priority</option>
+                            <option value="medium" ${
+                              task.priority === "medium" ? "selected" : ""
+                            }>Medium Priority</option>
+                            <option value="high" ${
+                              task.priority === "high" ? "selected" : ""
+                            }>High Priority</option>
+                        </select>
+                    </div>
+                    <div class="flex gap-2 justify-end">
+                        <button class="cancel-edit px-4 py-2 text-gray-500 hover:text-gray-700">
+                            Cancel
+                        </button>
+                        <button class="save-edit px-4 py-2 bg-violet-500 text-white rounded-lg hover:bg-violet-600">
+                            Save Changes
+                        </button>
+                    </div>
+                `;
+      const taskContent = taskItem.querySelector("div>label>div");
+      taskContent.replaceWith(editForm);
+      editForm.querySelector("input").focus();
+
+      const handleEdit = () => {
+        const newText = editForm.querySelector("input").value.trim();
+        const newCategory = editForm.querySelector("#edit-category").value;
+        const newPriority = editForm.querySelector("#edit-priority").value;
+
+        if (
+          newText &&
+          (newText !== currentText ||
+            newCategory !== task.category ||
+            newPriority !== task.priority)
+        ) {
+          task.text = newText;
+          task.category = newCategory;
+          task.priority = newPriority;
+          saveTask();
+        }
+        renderTasks();
+      };
+
+      const cancelEdit = () => {
+        renderTasks();
+      };
+
+      editForm
+        .querySelector(".save-edit")
+        .addEventListener("click", handleEdit);
+      editForm
+        .querySelector(".cancel-edit")
+        .addEventListener("click", cancelEdit);
+      editForm.querySelector("input").addEventListener("keypress", function () {
+        if (e.key === "Enter") handleEdit();
+      });
+    }
+  }
+
+  function clearCompleted() {
+    tasks = tasks.filter((t) => !t.completed);
+    saveTask();
+    renderTasks();
+    updateStats();
+
+    clearCompletedBtn.innerHTML = `<i class="fas fa-check"></i>Cleared!`;
+
+    setTimeout(() => {
+      clearCompletedBtn.innerHTML = `
+      <i class="fas fa-trash-alt"></i>Clear completed
+      `;
+    }, 1500);
+  }
+
+  function exportTask() {
+    const dataStr =
+      "data:text/json;charset=utf-8," +
+      encodeURIComponent(JSON.stringify(tasks, null, 2));
+    const downloadAnchor = document.createElement("a");
+    downloadAnchor.setAttribute("href", dataStr);
+    downloadAnchor.setAttribute("download", "my-tasks.json");
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    document.body.removeChild(downloadAnchor);
+
+    exportTasksBtn.innerHTML = `<i class="fas fa-check"></i>Exported!`;
+    setTimeout(() => {
+      exportTasksBtn.innerHTML = '<i class="fas fa-file-export"></i>Export';
+    }, 1500);
+  }
+
+  function updateStats() {
+    const totalTasks = tasks.lenght;
+    const completedTasks = tasks.filter((t) => t.completed).lenght;
+    const activeTasks = totalTasks - completedTasks;
+
+    taskCount.textContent = totalTasks;
+    remainingTasks.textContent = `${activeTasks}${
+      activeTasks === 1 ? "task" : "tasks"
+    } left`;
+
+    taskCount.classList.add("animate-pulse");
+    setTimeout(() => {
+      taskCount.classList.remove("annimate-pulse");
+    }, 300);
+  }
+
+  function formatDate(date) {
+    const now = new Date();
+    const taskDate = new Date(date);
+    const diffInHours = Math.abs(now - taskDate) / 36e5;
+
+    if (diffInHours < 24) {
+      return (
+        "today at" +
+        taskDate.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        })
+      );
+    } else if (diffInHours < 48) {
+      return (
+        "yesterday at" +
+        taskDate.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        })
+      );
+    } else if (diffInHours < 168) {
+      return `${Math.floor(diffInHours / 24)} days ago`;
+    } else {
+      return taskDate.toLocaleDateString("en-Us", {
+        month: "short",
+        day: "numeric",
+        year:
+          now.getFullYear() !== taskDate.getFullYear() ? "numeric" : undefined,
+      });
+    }
   }
 });
