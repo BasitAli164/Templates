@@ -92,6 +92,9 @@ window.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".editBtn").forEach((btn) =>
       btn.addEventListener("click", editTask)
     );
+
+    document.querySelectorAll(".task-checkbox").forEach((chk)=>chk.addEventListener("change",toggleTask)
+    )
   }
 
   function deleteTask(e) {
@@ -144,5 +147,19 @@ window.addEventListener("DOMContentLoaded", () => {
     editForm.querySelector("input").addEventListener("keypress", (e) => {
       if (e.key === "Enter") saveEdit();
     });
+  }
+
+  function toggleTask(e){
+    const item=e.target.closest(".taskItem")
+    const id = parseInt(item.dataset.id);
+    console.log(id)
+
+    const task=stores.find((t)=>t.id===id);
+    if(!task) return ;
+    task.completed=e.target.checked;
+    saveToLocalStorage();
+    renderTasks();
+    
+
   }
 });
