@@ -1,50 +1,148 @@
-// get all element through their id
+window.addEventListener("DOMContentLoaded", () => {
+  // elements
+  const inputText = document.getElementById("textInput");
+  const addBtn = document.getElementById("addBtn");
+  const textList = document.getElementById("textList");
 
-const inputText = document.getElementById("textInput");
-const addBtn = document.getElementById("addBtn");
-const textList = document.getElementById("textList");
+  // data
+  let stores = JSON.parse(localStorage.getItem("todo")) || [];
 
-// define the data structure to store data
+  // events
+  addBtn.addEventListener("click", addTask);
+  inputText.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") addTask();
+  });
 
-const stores = JSON.parse(localStorage.getItem("todo")) || [];
+  renderTasks();
 
-// bind all events
-addBtn.addEventListener("click", addTask);
-inputText.addEventListener("keypress", (e) => {
-  if (e.key == "Enter") addTask();
-});
+  // utils
+  function saveToLocalStorage() {
+    localStorage.setItem("todo", JSON.stringify(stores));
+  }
 
-// define the method
-function saveToLocalStorage() {
-  localStorage.setItem("todo", JSON.stringify(stores));
-}
+  function addTask() {
+    const text = inputText.value.trim();
+    if (!text) return;
 
-function addTask() {
-  const text = inputText.value.trim();
-  if (text) {
-    const newData = {
+    const newTask = {
       id: Date.now(),
-      text: text,
+      text,
       completed: false,
-      createdAt: Date.now(),
+      createdAt: new Date(),
     };
 
-    stores.unshift(newData);
-    render();
+    stores.unshift(newTask);
     saveToLocalStorage();
+    renderTasks();
+
     inputText.value = "";
     inputText.focus();
-    console.log(stores);
   }
-}
 
-function render() {
-    textList.innerHTML=""
-    stores.forEach((todo)=>{
-        const listItem=document.createElement('li');
-        
-    })
+  function renderTasks() {
+    const fragment = document.createDocumentFragment();
 
-}
+    if (stores.length === 0) {
+      const li = document.createElement("li");
+      li.textContent = "No tasks yet";
+      li.className = "text-gray-400 p-4";
+      fragment.appendChild(li);
+    } else {
+      stores.forEach((task) => {
+        const li = createTaskElement(task);
+        fragment.appendChild(li);
+      });
+    }
 
-render()
+    textList.innerHTML = "";
+    textList.appendChild(fragment);
+
+    attachTaskEventListeners();
+  }
+
+  function createTaskElement(task) {
+    const li = document.createElement("li");
+    li.className = "taskItem";
+    li.dataset.id = task.id;
+
+    li.innerHTML = `
+      <div class="listItem">
+        <div class="left">
+          <input type="checkbox" class="task-checkbox" ${
+            task.completed ? "checked" : ""
+          }/>
+          <p>${task.text}</p>
+        </div>
+
+        <div class="right">
+          <button class="editBtn">Edit</button>
+          <button class="deleteBtn">Delete</button>
+        </div>
+      </div>
+    `;
+
+    return li;
+  }
+
+  function attachTaskEventListeners() {
+    document.querySelectorAll(".deleteBtn").forEach((btn) =>
+      btn.addEventListener("click", deleteTask)
+    );
+
+    document.querySelectorAll(".editBtn").forEach((btn) =>
+      btn.addEventListener("click", editTask)
+    );
+  }
+
+  function deleteTask(e) {
+    const id = parseInt(e.target.closest(".taskItem").dataset.id);
+    stores = stores.filter((t) => t.id !== id);
+
+    saveToLocalStorage();
+    renderTasks();
+  }
+
+  function editTask(e) {
+    const item = e.target.closest(".taskItem");
+    const id = parseInt(item.dataset.id);
+    const task = stores.find((t) => t.id === id);
+
+    if (!task) return;
+
+    const editForm = document.createElement("div");
+    editForm.className = "editForm";
+
+    editForm.innerHTML = `
+      <input 
+        type="text" 
+        value="${task.text}"
+        class="editInput"
+      />
+
+      <div>
+        <button class="saveEdit">Save changes</button>
+        <button class="cancelEdit">Cancel</button>
+      </div>
+    `;
+
+    item.querySelector(".listItem").replaceWith(editForm);
+
+    const saveEdit = () => {
+      const newText = editForm.querySelector("input").value.trim();
+      if (newText) {
+        task.text = newText;
+        saveToLocalStorage();
+      }
+      renderTasks();
+    };
+
+    const cancelEdit = () => renderTasks();
+
+    editForm.querySelector(".saveEdit").addEventListener("click", saveEdit);
+    editForm.querySelector(".cancelEdit").addEventListener("click", cancelEdit);
+
+    editForm.querySelector("input").addEventListener("keypress", (e) => {
+      if (e.key === "Enter") saveEdit();
+    });
+  }
+});

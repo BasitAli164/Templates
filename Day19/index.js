@@ -161,7 +161,7 @@ window.addEventListener("DOMContentLoaded", () => {
       task.category
     )}">
     <i class="${getCategoryIcon(task.category)} mr-1"></i>
-    ${task.category.chartAt(0).toUpperCase() + task.category.slice(1)}
+    ${task.category.charAt(0).toUpperCase() + task.category.slice(1)}
     </span>
 
     <span class="inline-block px-2 py-1 rounded-full text-xs font-medium ${getPriorityClass(
@@ -169,7 +169,7 @@ window.addEventListener("DOMContentLoaded", () => {
     )}">
     <i class="${getPriorityIcon(task.priority)} mr-1"></i>
 
-  ${task.priority.chartAt(0).toUpperCase() + task.priority.slice(1)}
+  ${task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
     
     
     </span>
@@ -323,6 +323,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function editTask(e) {
     const taskItem = e.target.closest(".task-item");
+    console.log(taskItem)
     const taskId = parseInt(taskItem.dataset.id);
     const task = tasks.find((t) => t.id === taskId);
 
