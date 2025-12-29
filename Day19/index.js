@@ -99,6 +99,8 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     taskList.innerHTML = "";
     taskList.appendChild(fragment);
+
+    attachTaskEventListeners()
   }
 
   function filterAndSortTasks() {
