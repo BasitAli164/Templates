@@ -13,8 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Enter") addTask();
   });
 
-  renderTasks();
-
+  
   // utils
   function saveToLocalStorage() {
     localStorage.setItem("todo", JSON.stringify(stores));
@@ -162,4 +161,5 @@ window.addEventListener("DOMContentLoaded", () => {
     
 
   }
+  renderTasks();
 });
