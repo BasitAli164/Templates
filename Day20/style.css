@@ -86,3 +86,34 @@ li{
     color: #fff;
     font-weight: bold;
 }
+.editForm{
+    width: 100%;
+    padding: 10px 0px;
+    border: 0.5px solid rgb(237, 204, 204);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0px;
+    gap: 20px;
+    box-shadow: 4px 4px 10px 10px #fff;
+    border-radius: 5px;
+}
+.editForm input{
+    flex: 1;
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+.editForm button{
+    padding: 10px 12px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-right: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #afafaf;
+    color: #fff;
+}

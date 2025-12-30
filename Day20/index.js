@@ -92,7 +92,8 @@ window.addEventListener("DOMContentLoaded", () => {
       btn.addEventListener("click", editTask)
     );
 
-    document.querySelectorAll(".task-checkbox").forEach((chk)=>chk.addEventListener("change",toggleTask)
+    document.querySelectorAll(".task-checkbox").forEach((chk)=>
+      chk.addEventListener("change",toggleTask)
     )
   }
 
@@ -131,7 +132,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const saveEdit = () => {
       const newText = editForm.querySelector("input").value.trim();
-      if (newText) {
+      if (newText &&(newText!==stores.text)) {
         task.text = newText;
         saveToLocalStorage();
       }
