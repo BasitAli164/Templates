@@ -32,7 +32,7 @@ window.addEventListener("DOMContentLoaded", () => {
   function saveToLocalStorage() {
     localStorage.setItem("users", JSON.stringify(dataStorage));
   }
-
+ 
   function addUserFun(e) {
     try {
       // first prevent default to prevent reload or refresh whole page on each click of btn
@@ -69,14 +69,28 @@ window.addEventListener("DOMContentLoaded", () => {
         createdAt: Date.now(),
       };
 
+
+      // save into data structure
       dataStorage.unshift(newData)
       saveToLocalStorage();
+      renderUI();
       console.log("User Add Successfully in localStorage")
 
 
 
     } catch (error) {
       console.error("Error during add user:", error);
+    }
+  }
+
+
+  const renderUI=function(){
+    const fragment=document.createDocumentFragment();
+    if(dataStorage.length===0){
+      const listItem=document.createElement("li");
+      listItem.textContent="There is no data yet";
+      listItem.className="notData"
+      fragment.appendChild(listItem)
     }
   }
 });

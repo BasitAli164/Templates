@@ -56,3 +56,8 @@ button:hover{
     opacity: 1;
     
 }
+.notData{
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(214, 86, 86);
+}
