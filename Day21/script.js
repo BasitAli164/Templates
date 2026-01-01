@@ -16,15 +16,6 @@ window.addEventListener("DOMContentLoaded", () => {
   // Bind All eventListner
 
   addUser.addEventListener("submit", addUserFun);
-  inputFields.userName.addEventListener("keypress", (e) => {
-    if (e.key == "Enter") addUserFun();
-  });
-  inputFields.userEmail.addEventListener("keypress", (e) => {
-    if (e.key == "Enter") addUserFun();
-  });
-  inputFields.userPassword.addEventListener("keypress", (e) => {
-    if (e.key == "Enter") addUserFun();
-  });
 
   // now create all function which are required
 
