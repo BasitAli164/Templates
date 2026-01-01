@@ -40,7 +40,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function renderTasks() {
     const fragment = document.createDocumentFragment();
-    console.log(fragment)
 
     if (stores.length === 0) {
       const li = document.createElement("li");

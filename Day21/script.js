@@ -7,6 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
     userEmail: document.getElementById("useremail"),
     userPassword: document.getElementById("userpassword"),
   };
+  const listItemArea = document.getElementById("listItem");
 
   // Make or Create a data structure for store data into local storage
 
@@ -32,7 +33,7 @@ window.addEventListener("DOMContentLoaded", () => {
   function saveToLocalStorage() {
     localStorage.setItem("users", JSON.stringify(dataStorage));
   }
- 
+
   function addUserFun(e) {
     try {
       // first prevent default to prevent reload or refresh whole page on each click of btn
@@ -57,40 +58,57 @@ window.addEventListener("DOMContentLoaded", () => {
         throw new Error("Password must be more than 5 character");
       }
 
-
-
       // create new object and save that in local Storage with help of our data structure
 
       const newData = {
-        id:Math.random().toFixed(4)*10,
+        id: Math.random().toFixed(4) * 10,
         name: userName,
         email: userEmail,
         password: userPassword,
         createdAt: Date.now(),
       };
 
-
       // save into data structure
-      dataStorage.unshift(newData)
-      saveToLocalStorage();
+      dataStorage.unshift(newData);
       renderUI();
-      console.log("User Add Successfully in localStorage")
-
-
-
+      console.log("User Add Successfully in localStorage");
     } catch (error) {
       console.error("Error during add user:", error);
     }
   }
 
-
-  const renderUI=function(){
-    const fragment=document.createDocumentFragment();
-    if(dataStorage.length===0){
-      const listItem=document.createElement("li");
-      listItem.textContent="There is no data yet";
-      listItem.className="notData"
-      fragment.appendChild(listItem)
+  const renderUI = function () {
+    const fragment = document.createDocumentFragment();
+    if (dataStorage.length === 0) {
+      const listItem = document.createElement("li");
+      listItem.textContent =
+        "There is no data in localStorage yet, so add user first";
+      listItem.className = "notData";
+      fragment.appendChild(listItem);
+    } else {
+      dataStorage.forEach((user) => {
+        const listItem = createElement(user);
+        fragment.appendChild(listItem);
+      });
     }
+
+
+    listItemArea.innerHTML = "";
+    listItemArea.appendChild(fragment);
+     saveToLocalStorage();
+  };
+
+  function createElement(user) {
+    const listItem = document.createElement("li");
+    listItem.className = "listItem";
+    listItem.dataset.id = dataStorage.id;
+    listItem.innerHTML = `
+    <div>
+    <p>${user.name}</p>
+    </div>
+    `;
+
+    return listItem;
   }
+  renderUI();
 });
