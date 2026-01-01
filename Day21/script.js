@@ -92,10 +92,9 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-
     listItemArea.innerHTML = "";
     listItemArea.appendChild(fragment);
-     saveToLocalStorage();
+    saveToLocalStorage();
   };
 
   function createElement(user) {
