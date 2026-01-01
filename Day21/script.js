@@ -11,8 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Make or Create a data structure for store data into local storage
 
-  const dataStorage = JSON.parse(localStorage.getItem("users")) || [];
-  console.log("dataStorage", localStorage);
+  let dataStorage = JSON.parse(localStorage.getItem("users")) || [];
 
   // Bind All eventListner
 
@@ -80,34 +79,61 @@ window.addEventListener("DOMContentLoaded", () => {
   const renderUI = function () {
     const fragment = document.createDocumentFragment();
     if (dataStorage.length === 0) {
-      const listItem = document.createElement("li");
-      listItem.textContent =
-        "There is no data in localStorage yet, so add user first";
-      listItem.className = "notData";
-      fragment.appendChild(listItem);
+      const li = document.createElement("li");
+      li.textContent = "There is no data yet";
+      fragment.appendChild(li);
     } else {
       dataStorage.forEach((user) => {
-        const listItem = createElement(user);
-        fragment.appendChild(listItem);
+        const li = createElements(user);
+        fragment.appendChild(li);
       });
     }
 
     listItemArea.innerHTML = "";
     listItemArea.appendChild(fragment);
-    saveToLocalStorage();
+    attachTaskEventListeners();
   };
 
-  function createElement(user) {
-    const listItem = document.createElement("li");
-    listItem.className = "listItem";
-    listItem.dataset.id = dataStorage.id;
-    listItem.innerHTML = `
-    <div>
-    <p>${user.name}</p>
+  function createElements(user) {
+    const li = document.createElement("li");
+    li.dataset.id = user.id;
+    li.className = "listItem";
+
+    li.innerHTML = `
+    <div class="box">
+    <div class="left">
+    <p>
+    ${user.name}<br/>
+    ${user.email}<br/>  
+    ${user.password}<br/>
+    
+    </p>
     </div>
+    <div class="right">
+    <button class="editBtn">Edit</button>
+    <button class="delBtn">Delete</button>
+    </div>
+    </div>
+    
     `;
 
-    return listItem;
+    return li;
+  }
+
+  function attachTaskEventListeners() {
+    document
+      .querySelectorAll(".delBtn")
+      .forEach((btn) => btn.addEventListener("click", delUser));
+  }
+
+  function delUser(e) {
+    console.log("chaloo laa delete funcion ");
+    const id = parseInt(e.target.closest(".listItem").dataset.id);
+    console.log(id);
+    dataStorage = dataStorage.filter((t) => t.id !== id);
+    console.log(dataStorage);
+    saveToLocalStorage();
+    renderUI();
   }
   renderUI();
 });

@@ -98,6 +98,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function deleteTask(e) {
     const id = parseInt(e.target.closest(".taskItem").dataset.id);
+    console.log("id is:",id)
     stores = stores.filter((t) => t.id !== id);
 
     saveToLocalStorage();
