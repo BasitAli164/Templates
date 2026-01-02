@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Make or Create a data structure for store data into local storage
 
-  let dataStorage = JSON.parse(localStorage.getItem("users")) || [];
+  let dataStorage = JSON.parse(localStorage.getItem("students")) || [];
 
   // Bind All eventListner
 
@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   //? this is a util function
   function saveToLocalStorage() {
-    localStorage.setItem("users", JSON.stringify(dataStorage));
+    localStorage.setItem("students", JSON.stringify(dataStorage));
   }
 
   function addUserFun(e) {
@@ -82,6 +82,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     listItemArea.innerHTML = "";
     listItemArea.appendChild(fragment);
+    saveToLocalStorage()
     attachTaskEventListeners();
   };
 
@@ -118,12 +119,8 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function delUser(e) {
-    console.log("chaloo laa delete funcion ");
     const id = parseInt(e.target.closest(".listItem").dataset.id);
-    console.log(id);
     dataStorage = dataStorage.filter((t) => t.id !== id);
-    console.log(dataStorage);
-    saveToLocalStorage();
     renderUI();
   }
   renderUI();
