@@ -10,39 +10,13 @@ window.addEventListener("DOMContentLoaded", () => {
   let todos = JSON.parse(localStorage.getItem("todos")) || [];
   console.log(todos);
 
-  // create function
+  // Required function
+
+  
+
   function saveToLocalStorage() {
     localStorage.setItem("todos", JSON.stringify(todos));
   }
-
-  function addTodoFun(e) {
-    try {
-      e.preventDefault();
-      const title = titleField.value.trim();
-      const description = descriptionField.value.trim();
-      console.log(description);
-      if (!title) {
-        throw new Error("Title is mendatory");
-      }
-      if (!description) {
-        throw new Error("Description is mendatory");
-      }
-
-      const newData = {
-        id: Date.now(),
-        createAt: new Date(),
-        title: title,
-        description: description,
-        complete: false,
-      };
-
-      todos.push(newData);
-      rendering();
-    } catch (error) {
-      console.error("Error facing during adding the todo", error);
-    }
-  }
-
   function rendering() {
     let fragment = document.createDocumentFragment();
     if (todos.length === 0) {
@@ -71,17 +45,53 @@ window.addEventListener("DOMContentLoaded", () => {
     <div class="box">
     <div class"boxInside">
     <input type="checkbox" class="checkBox" ${todo.complete ? "checked" : ""}/>
-    <bold>${todo.titel}</bold>    
+    <bold>${todo.title}</bold>    
     </div>
     <p>${todo.description}</p>
     </div>     
     `;
+
+
+    return li;
   }
 
   function bindsAllEvent() {
     document
       .querySelector("#addTodoForm")
       .addEventListener("submit", addTodoFun);
+  }
+
+
+
+  // crud Functin 
+
+  //! create or add function 
+   function addTodoFun(e) {
+    try {
+      e.preventDefault();
+      const title = titleField.value.trim();
+      const description = descriptionField.value.trim();
+      console.log(description);
+      if (!title) {
+        throw new Error("Title is mendatory");
+      }
+      if (!description) {
+        throw new Error("Description is mendatory");
+      }
+
+      const newData = {
+        id: Date.now(),
+        createAt: new Date(),
+        title: title,
+        description: description,
+        complete: false,
+      };
+
+      todos.push(newData);
+      rendering();
+    } catch (error) {
+      console.error("Error facing during adding the todo", error);
+    }
   }
 
   rendering();
