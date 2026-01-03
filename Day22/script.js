@@ -137,8 +137,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     `;
 
-    document.querySelector(".box").replaceWith(editForm);
-
     function saveEdit() {
       const newTitle = editForm.querySelector("input").value.trim();
       const newDes = editForm.querySelector("textarea").value.trim();
@@ -158,15 +156,14 @@ window.addEventListener("DOMContentLoaded", () => {
       rendering();
     }
 
+    document.querySelector(".box").replaceWith(editForm);
     document.querySelector(".cancel").addEventListener("click", cancelEdit);
     document.querySelector(".save").addEventListener("click", saveEdit);
   }
 
   function toggle(e) {
     const id = parseInt(e.target.closest(".values").dataset.id);
-    console.log(id);
     const todo = todos.find((t) => t.id === id);
-    console.log(todo);
     if (todo) {
       todo.complete = e.target.checked;
     }
