@@ -1,0 +1,99 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+html,body{
+    width: 100%;
+    background-color: rgba(219, 208, 192,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body .container{
+    width: 1024px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid red;
+    margin-top: 50px;
+    padding: 10px;
+
+}
+.container h1{
+
+    font-size: 70px;
+    text-decoration: underline;
+    color: burlywood;
+    opacity: 0.8;
+    margin-bottom: 10px;
+    
+    
+}
+.container form{
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid gray;
+    overflow: hidden;
+    box-shadow: 10px 10px 30px 10px gray;
+    padding: 20px;
+    border-radius: 10px;
+}
+.container form div label{
+    font-size: 18px;
+    opacity: 0.7;
+    font-weight: bold;
+}
+.container form div input{
+    width: 100%;
+    padding: 13px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: rgb(241, 232, 220);
+    font-size: 18px;
+}
+.container form div textarea{
+    width: 100%;
+    padding: 20px 10px;
+    border: none;
+    outline:  none;
+    border-radius: 5px;
+    background-color: rgb(241, 232, 220);
+    font-size: 18px;
+}
+.container form div button{
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color:bisque;
+    cursor: pointer;
+    transition: all 0.9s linear;
+}
+.container form div button:hover{
+    background-color: rgb(236, 201, 159);
+    color: rgb(141, 139, 139);
+}
+
+/* Dynamically generated ui css */
+#result{
+    background-color: aqua;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+
+}
+.emptyDataList{
+    list-style: none;
+    font-size: 20px;
+    color: red;
+    
+}
