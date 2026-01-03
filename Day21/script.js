@@ -51,7 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
       // create new object and save that in local Storage with help of our data structure
 
       const newData = {
-        id:Date.now(),
+        id: Date.now(),
         name: userName,
         email: userEmail,
         password: userPassword,
@@ -116,15 +116,26 @@ window.addEventListener("DOMContentLoaded", () => {
   function attachTaskEventListeners() {
     document
       .querySelectorAll(".delBtn")
-      .forEach(
-        btn => btn.addEventListener("click", delUser)
-      );
+      .forEach((btn) => btn.addEventListener("click", delUser));
+
+    document
+      .querySelectorAll(".editBtn")
+      .forEach((btn) => btn.addEventListener("click", editUser));
   }
 
   function delUser(e) {
     const id = parseInt(e.target.closest(".listItem").dataset.id);
     dataStorage = dataStorage.filter((t) => t.id !== id);
     renderUI();
+  }
+
+  function editUser(e) {
+    const id = parseInt(e.target.closest(".listItem").dataset.id);
+    const task=dataStorage.find(t=>t.id===id)
+    if(!task){
+      throw new Error("There is no task")
+    }
+    
   }
   renderUI();
 });
