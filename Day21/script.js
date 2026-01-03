@@ -51,7 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
       // create new object and save that in local Storage with help of our data structure
 
       const newData = {
-        id: Math.random().toFixed(4) * 10,
+        id: new Date(),
         name: userName,
         email: userEmail,
         password: userPassword,
@@ -82,7 +82,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     listItemArea.innerHTML = "";
     listItemArea.appendChild(fragment);
-    saveToLocalStorage()
+    // saveToLocalStorage();
     attachTaskEventListeners();
   };
 
@@ -115,12 +115,16 @@ window.addEventListener("DOMContentLoaded", () => {
   function attachTaskEventListeners() {
     document
       .querySelectorAll(".delBtn")
-      .forEach((btn) => btn.addEventListener("click", delUser));
+      .forEach(
+        btn => btn.addEventListener("click", delUser)
+      );
   }
 
   function delUser(e) {
     const id = parseInt(e.target.closest(".listItem").dataset.id);
+    console.log(id)
     dataStorage = dataStorage.filter((t) => t.id !== id);
+    console.log(dataStorage)
     renderUI();
   }
   renderUI();
