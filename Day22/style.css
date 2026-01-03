@@ -86,6 +86,8 @@ body .container{
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
     padding: 20px;
     margin-top: 20px;
     border-radius: 5px;
@@ -95,5 +97,16 @@ body .container{
     list-style: none;
     font-size: 20px;
     color: red;
+    
+}
+.values{
+    list-style: none;
+}
+.values .box{
+    width: 200px;
+    height: 100px;
+    border: 2px solid red;
+    margin: 2px 5px;
+    padding: 10px;
     
 }

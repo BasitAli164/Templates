@@ -158,7 +158,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const task=stores.find((t)=>t.id===id);
     if(!task) return ;
     task.completed=e.target.checked;
-    saveToLocalStorage();
+    saveToLocalStorage(); 
     renderTasks();
     
 
