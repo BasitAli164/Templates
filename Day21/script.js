@@ -51,17 +51,18 @@ window.addEventListener("DOMContentLoaded", () => {
       // create new object and save that in local Storage with help of our data structure
 
       const newData = {
-        id: new Date(),
+        id:Date.now(),
         name: userName,
         email: userEmail,
         password: userPassword,
-        createdAt: Date.now(),
+        createdAt: new Date(),
       };
 
       // save into data structure
       dataStorage.unshift(newData);
       renderUI();
       console.log("User Add Successfully in localStorage");
+      addUser.reset();
     } catch (error) {
       console.error("Error during add user:", error);
     }
@@ -82,7 +83,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     listItemArea.innerHTML = "";
     listItemArea.appendChild(fragment);
-    // saveToLocalStorage();
+    saveToLocalStorage();
     attachTaskEventListeners();
   };
 
@@ -122,9 +123,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function delUser(e) {
     const id = parseInt(e.target.closest(".listItem").dataset.id);
-    console.log(id)
     dataStorage = dataStorage.filter((t) => t.id !== id);
-    console.log(dataStorage)
     renderUI();
   }
   renderUI();
