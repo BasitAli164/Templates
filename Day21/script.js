@@ -15,8 +15,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Bind All eventListner
 
-  addUser.addEventListener("submit", addUserFun);
-
   // now create all function which are required
 
   //? this is a util function
@@ -121,6 +119,11 @@ window.addEventListener("DOMContentLoaded", () => {
     document
       .querySelectorAll(".editBtn")
       .forEach((btn) => btn.addEventListener("click", editUser));
+
+    // addUser.addEventListener("submit", addUserFun);
+    document
+      .querySelector("#addUser")
+      .addEventListener("submit", addUserFun);
   }
 
   function delUser(e) {
@@ -130,12 +133,56 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function editUser(e) {
-    const id = parseInt(e.target.closest(".listItem").dataset.id);
-    const task=dataStorage.find(t=>t.id===id)
-    if(!task){
-      throw new Error("There is no task")
+    const item = e.target.closest(".listItem");
+    const id = parseInt(item.dataset.id);
+    const task = dataStorage.find((t) => t.id === id);
+    if (!task) {
+      throw new Error("There is no task");
     }
+    const editForm = document.createElement("div");
+    editForm.className = "editForm";
+    editForm.innerHTML = `
+    <div>
+    <div>
+    <input class="name" value="${task.name}"/>
+    <input type="email" class="email value="${task.email}"/>
+    <input  class="password" value="${task.password}"/>
+    </div>
+    <div>
+    <button class="save">save edit</button>
+    <button class="cancel">cancel</button>
+    </div>
     
+    </div>
+
+
+    `;
+
+    function cancelEdit() {
+      renderUI();
+    }
+
+    function saveEdit() {
+      const newName = editForm.querySelector(".name").value.trim();
+      const newPassword = editForm.querySelector(".password").value.trim();
+      const newEmail = editForm.querySelector(".email").value.trim();
+      if (newName && newName !== task.name) {
+        task.name = newName;
+        saveToLocalStorage();
+      }
+      if (newPassword && newPassword !== task.password) {
+        task.password = newPassword;
+      }
+      if (newEmail && newEmail !== task.email) {
+        task.email = newEmail;
+        saveToLocalStorage();
+      }
+      renderUI();
+    }
+
+    item.querySelector(".box").replaceWith(editForm);
+    document.querySelector(".cancel").addEventListener("click", cancelEdit);
+    document.querySelector(".save").addEventListener("click", saveEdit);
   }
   renderUI();
 });
