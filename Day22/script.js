@@ -105,21 +105,26 @@ window.addEventListener("DOMContentLoaded", () => {
       titleField.focus();
       descriptionField.focus();
     } catch (error) {
-      console.error("Error facing during adding the todo", error);
+      console.error("Error face during create new todo", error);
     }
   }
   function delTodo(e) {
-    const id = e.target.closest(".values").dataset.id;
-    todos = todos.filter((t) => t.id != id);
-    console.log(todos);
-    rendering();
+    try {
+      const id = e.target.closest(".values").dataset.id;
+      todos = todos.filter((t) => t.id != id);
+      console.log(todos);
+      rendering();
+    } catch (error) {
+      console.error("Error face during delete  todo", error);
+    }
   }
   function editTodo(e) {
-    const id = parseInt(e.target.closest(".values").dataset.id);
-    const todo = todos.find((t) => t.id === id);
+    try {
+      const id = parseInt(e.target.closest(".values").dataset.id);
+      const todo = todos.find((t) => t.id === id);
 
-    const editForm = document.createElement("div");
-    editForm.innerHTML = `
+      const editForm = document.createElement("div");
+      editForm.innerHTML = `
     <div>
     <div>
     <input class="new" value="${todo.title}"/>
@@ -135,37 +140,44 @@ window.addEventListener("DOMContentLoaded", () => {
 
     `;
 
-    function saveEdit() {
-      const newTitle = editForm.querySelector("input").value.trim();
-      const newDes = editForm.querySelector("textarea").value.trim();
+      function saveEdit() {
+        const newTitle = editForm.querySelector("input").value.trim();
+        const newDes = editForm.querySelector("textarea").value.trim();
 
-      if (newTitle && newTitle !== todo.title) {
-        todo.title = newTitle;
-        saveToLocalStorage();
+        if (newTitle && newTitle !== todo.title) {
+          todo.title = newTitle;
+          saveToLocalStorage();
+        }
+        if (newDes && newDes !== todo.description) {
+          todo.description = newDes;
+          saveToLocalStorage();
+        }
+        rendering();
       }
-      if (newDes && newDes !== todo.description) {
-        todo.description = newDes;
-        saveToLocalStorage();
+
+      function cancelEdit() {
+        rendering();
       }
-      rendering();
-    }
 
-    function cancelEdit() {
-      rendering();
+      document.querySelector(".box").replaceWith(editForm);
+      document.querySelector(".cancel").addEventListener("click", cancelEdit);
+      document.querySelector(".save").addEventListener("click", saveEdit);
+    } catch (error) {
+      console.error("Error face during edit  todo", error);
     }
-
-    document.querySelector(".box").replaceWith(editForm);
-    document.querySelector(".cancel").addEventListener("click", cancelEdit);
-    document.querySelector(".save").addEventListener("click", saveEdit);
   }
 
   function toggle(e) {
-    const id = parseInt(e.target.closest(".values").dataset.id);
-    const todo = todos.find((t) => t.id === id);
-    if (todo) {
-      todo.complete = e.target.checked;
+    try {
+      const id = parseInt(e.target.closest(".values").dataset.id);
+      const todo = todos.find((t) => t.id === id);
+      if (todo) {
+        todo.complete = e.target.checked;
+      }
+      rendering();
+    } catch (error) {
+      console.error("Error face during toggle  todo", error);
     }
-    rendering();
   }
 
   rendering();
