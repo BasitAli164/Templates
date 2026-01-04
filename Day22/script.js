@@ -8,7 +8,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // create Data structure for saving data
   let todos = JSON.parse(localStorage.getItem("todos")) || [];
-  console.log(todos);
 
   // Required function
 
@@ -58,7 +57,7 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>     
     `;
 
-    return li;
+    return li; // must be need to return this otherwise face error due to this
   }
   //? bind all envent which are use in whole project
   function bindsAllEvent() {
@@ -85,7 +84,6 @@ window.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const title = titleField.value.trim();
       const description = descriptionField.value.trim();
-      console.log(description);
       if (!title) {
         throw new Error("Title is mendatory");
       }
