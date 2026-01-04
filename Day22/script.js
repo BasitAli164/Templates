@@ -180,5 +180,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+
+  //? global func which required to run all time
   rendering();
 });
