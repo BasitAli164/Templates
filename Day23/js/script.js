@@ -7,6 +7,9 @@ window.addEventListener("DOMContentLoaded", () => {
   const userEmail = document.getElementById("email");
   const userPassword = document.getElementById("password");
 
+  // write a regix
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
   // create data structure for storing data
 
   let userData = JSON.parse(localStorage.getItem("userData")) || [];
@@ -24,14 +27,15 @@ window.addEventListener("DOMContentLoaded", () => {
       let email = userEmail.value.trim();
       let password = userPassword.value.trim();
 
-      if (!name) {
-        throw new Error("Name is required");
+      if (!name || !isNaN(name)) {
+        throw new Error("Username must be a string and cannot be only numbers");
       }
-      if (!email) {
-        throw new Error("Email is required");
+
+      if (!email || !emailRegex.test(email)) {
+        throw new Error("Please enter a valid email address");
       }
-      if (!password) {
-        throw new Error("Password is required");
+      if (!password || password.length < 5) {
+        throw new Error("Password must be at least 5 characters long");
       }
 
       const data = {
@@ -44,6 +48,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
       userData.push(data);
 
+      
       saveUserInLocalStorage();
       loginBtn.reset();
     } catch (error) {
