@@ -80,13 +80,18 @@ input:focus {
 .container {
     background: var(--white);
     padding: 15px 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: var(--shadow);
     width: 400px;
-    height: 400px;
+    height: 420px;
 }
 
 #loginBtn {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.inputFields{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -96,10 +101,11 @@ input:focus {
     font-size: 40px;
     color: var(--green);
     text-align: center;
+    margin-top: 5px;
 
 }
 .inputFieldBox label{
-    font-size: 16px;
+    font-size: 14px;
     color: gray;
 }
 .inputFieldBox input{
