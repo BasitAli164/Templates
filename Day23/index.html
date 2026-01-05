@@ -6,12 +6,27 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>JPC</title>
 </head>
-<body>
+<body class="mainBody">
 
     <div class="container">
         <form id="loginBtn">
-            <h2>Login to Explore JPC</h2>
-            
+            <h2 class="loginHeading">Login to Explore JPC</h2>
+            <div class="inputFields">
+                <div class="inputFieldBox">
+                    <label>Username*</label>
+                    <input type="text"  id="username"/>
+                </div>
+                <div class="inputFieldBox">
+                    <label>Email*</label>
+                    <input type="email"  id="email"/>
+                </div>
+                <div class="inputFieldBox">
+                    <label>Password*</label>
+                    <input type="password"  id="password"/>
+                </div>
+                <button class="LoginsubmitBtn" type="submit">Login</button>
+                
+            </div>
         </form>
 
     </div>
