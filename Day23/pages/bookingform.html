@@ -31,50 +31,50 @@
         <h1>Book Your Snooker Table</h1>
       <form id="bookingTableForm">
         <div class="namebox">
-          <input type="text" id="yourName" placeholder="Your Name *" required/>
+          <input type="text" id="yourName" placeholder="Your Name *" />
         </div>
         <div class="dateandtime">
-          <input type="date" id="date" required/>
-          <input type="time" id="time" required />
+          <input type="date" id="date" />
+          <input type="time" id="time"  />
         </div>
         <div class="service">
-          <select name="Service" id="service" required>
+          <select name="Service" id="service" >
             <option value="Snooker">Snooker</option>
             <option value="Pool">Pool</option>
             <option value="barandrefreshments">Bar & Refreshments</option>
           </select>
         </div>
         <div class="fourfield">
-          <select name="Type of Table" id="typeOfTable" required>
+          <select name="Type of Table" id="typeOfTable"  >
             <option value="Standard">Standard</option>
             <option value="Profession">Profession</option>
             <option value="Mini">Mini</option>
           </select>
-          <select name="Type of Game" id="typeofgame" required>
+          <select name="Type of Game" id="typeofgame" >
             <option value="6-Ball">6-Ball</option>
             <option value="1-RedBall">1-RedBall</option>
             <option value="Century">Century</option>
           </select>
-          <select name="Floor" id="floor" required>
+          <select name="Floor" id="floor" >
             <option value="ground">Ground</option>
             <option value="first">First</option>
             <option value="second">Second</option>
           </select>
           <div class="duration">
-            <input type="number" id="duration" placeholder="Duration(hours)*" required />
+            <input type="number" id="duration" placeholder="Duration(hours)*"  />
           </div>
         </div>
         <div class="specialrequestandplayers">
           <textarea
             id="specialRequest"
             placeholder="Special Request"
-            required
+            
             rows="5"
           ></textarea>
-          <input type="number" id="players"  placeholder="Number of Players*" required/>
+          <input type="number" id="players"  placeholder="Number of Players*" />
         </div>
         <div class="btnBox">
-          <button>Confirm Booking</button>
+          <button type="submit">Confirm Booking</button>
         </div>
       </form>
       </div>
