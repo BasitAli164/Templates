@@ -85,16 +85,16 @@ body {
     align-items: center;
     overflow: hidden;
     text-align: center;
-    background: rgba(0, 0, 0, 0.5);
+    /* background: rgba(0, 0, 0, 0.5); */
 }
 
 .main .mainHeading {
     font-size: 60px;
-    color: var(--white);
+    color: rgba(0,0,0, 0.7);
 }
 
 .main .subHeading {
-    color: var(--white);
+    color: rgba(0,0,0, 0.7);
     margin-top: 10px;
     font-size: 30px;
     font-style: italic;
@@ -122,9 +122,67 @@ body {
 
 /* footer css start from here */
 
+.footer{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    background-color: rgb(59, 78, 59);
+    color: var(--white);
+    padding: 20px 30px;
+}
+.footer .topbox{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+.footer .topbox .box h4{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.footer .topbox .box p{
+    text-align: justify;
+}
+
+.footer .topbox .box ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+.footer .topbox .box ul li{
+    list-style: none;
+}
+.footer .topbox .box ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.footer .topbox .box .socialmediaBtn{
+    display: flex;
+    flex-direction: column;
+}
+.footer .topbox .box .socialmediaBtn div button{
+    width:100px;
+    border: none;
+    outline: none;
+    padding: 5px 20px;
+    margin: 4px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--green);
+    color: white;
+}
 
 
+.footer .topbox .box .contactBox p{
+    text-align: justify;
+} 
 
+
+.footer .bottomBox{
+    text-align: center;
+    margin-top: 30px;
+}
 
 
 
