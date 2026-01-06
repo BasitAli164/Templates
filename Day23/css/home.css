@@ -1,8 +1,12 @@
-*,*::after,*::before{
+*,
+*::after,
+*::before {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
 :root {
     --white: #fff;
     --black: #000;
@@ -10,37 +14,48 @@
     --darkGreen: #004d40;
     --shadow: 0px 1px 15px 1px #6d6d6d;
 }
-html,body{
+
+html,
+body {
     width: 100%;
+    height: 100%;
+    position: relative;
 
 }
 
 /* Header CSS Start from here */
-.header{
+.header {
+    width: 100%;
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--green);
     padding: 5px;
 }
-.header .logoBox img{
+
+.header .logoBox img {
     width: 75px;
 }
-.header .menuList ul{
+
+.header .menuList ul {
     display: flex;
     gap: 30px;
 }
-.header .menuList ul li{
+
+.header .menuList ul li {
     list-style: none;
-    
+
 }
-.header .menuList ul li a{
+
+.header .menuList ul li a {
     text-decoration: none;
     color: var(--white);
     font-size: 18px;
     cursor: pointer;
 }
-.header .logoutBtnBox button{
+
+.header .logoutBtnBox button {
     border: none;
     outline: none;
     width: 40px;
@@ -51,5 +66,55 @@ html,body{
     color: var(--white);
     cursor: pointer;
 }
-/* Header CSS End from here */
 
+/* Header CSS End From Here */
+
+
+/* Main CSS Start From Here */
+
+.main {
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/image/landingImage.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.main .mainHeading {
+    font-size: 60px;
+    color: var(--white);
+}
+
+.main .subHeading {
+    color: var(--white);
+    margin-top: 10px;
+    font-size: 30px;
+    font-style: italic;
+}
+
+.main .homePageBtn {
+    padding: 15px 40px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    background-color: var(--green);
+    color: var(--white);
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.5s linear;
+}
+
+.main .homePageBtn:hover {
+    transform: scale(1.02);
+
+}
