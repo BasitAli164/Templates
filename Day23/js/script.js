@@ -48,10 +48,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
       userData.push(data);
 
-      
       saveUserInLocalStorage();
       loginBtn.reset();
-      window.location.replace("./pages/home.html")
+      window.location.replace("./pages/home.html");
     } catch (error) {
       console.error("Facing error on login time", error);
     }

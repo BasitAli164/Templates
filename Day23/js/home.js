@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
   // ========== Logout logic or code ===========
   const logOutBtn = document.getElementById("logoutBtn");
-  const bookingBtn=document.getElementById("bookTableBtn")
+  const bookingBtn = document.getElementById("bookTableBtn");
   const userData = JSON.parse(localStorage.getItem("userData"));
 
   if (!userData) {
@@ -15,10 +15,7 @@ window.addEventListener("DOMContentLoaded", () => {
   // ========== Logout logic or code ===========
 
   // ========== Booking Btn logic or code ===========
-  bookingBtn.addEventListener("click",()=>{
-    window.location.assign("../pages/bookingform.html")
-  })
-
-
-
+  bookingBtn.addEventListener("click", () => {
+    window.location.assign("../pages/bookingform.html");
+  });
 });
