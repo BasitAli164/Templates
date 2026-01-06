@@ -1,4 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
+  // ====== booking table logic code start form here ====
+
   // get all elements
 
   const addBooking = document.getElementById("bookingTableForm");
@@ -91,11 +93,21 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // ====== booking table logic code end form here ====
 
+  // ====== auth logic start form here ====
+  const logOutBtn = document.getElementById("logoutBtn");
   const userData = JSON.parse(localStorage.getItem("userData"));
-  console.log("user Data",userData)
+  console.log("user Data", userData);
 
   if (!userData) {
     window.location.replace("../index.html");
   }
+
+  logOutBtn.addEventListener("click", () => {
+    localStorage.removeItem("userData");
+    window.location.replace("../index.html");
+  });
+
+  // ====== auth logic end form here ====
 });
