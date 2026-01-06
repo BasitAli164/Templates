@@ -1,12 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/bookingform.css">
     <title>Document</title>
-</head>
-<body>
-    booking form 
-    
-</body>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logoBox">
+        <a href="/Day23/pages/home.html"
+          ><img src="../assets/logo.png" alt="Logo"
+        /></a>
+      </div>
+      <nav class="menuList">
+        <ul>
+          <li><a href="/Day23/pages/home.html">Home</a></li>
+          <li><a href="/Day23/pages/home.html">Service</a></li>
+          <li><a href="/Day23/pages/home.html">About</a></li>
+          <li><a href="/Day23/pages/home.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="logoutBtnBox">
+        <button id="logoutBtn">LO</button>
+      </div>
+    </header>
+
+    <main class="bookingForm">
+      <div class="innerboxForm">
+        <h1>Book Your Snooker Table</h1>
+      <form id="bookingTableForm">
+        <div class="namebox">
+          <input type="text" id="yourName" placeholder="Your Name *" required/>
+        </div>
+        <div class="dateandtime">
+          <input type="date" id="date" required/>
+          <input type="time" id="time" required />
+        </div>
+        <div class="service">
+          <select name="Service" id="service" required>
+            <option value="Snooker">Snooker</option>
+            <option value="Pool">Pool</option>
+            <option value="barandrefreshments">Bar & Refreshments</option>
+          </select>
+        </div>
+        <div class="fourfield">
+          <select name="Type of Table" id="typeOfTable" required>
+            <option value="Standard">Standard</option>
+            <option value="Profession">Profession</option>
+            <option value="Mini">Mini</option>
+          </select>
+          <select name="Type of Game" id="typeofgame" required>
+            <option value="6-Ball">6-Ball</option>
+            <option value="1-RedBall">1-RedBall</option>
+            <option value="Century">Century</option>
+          </select>
+          <select name="Floor" id="floor" required>
+            <option value="ground">Ground</option>
+            <option value="first">First</option>
+            <option value="second">Second</option>
+          </select>
+          <div class="duration">
+            <input type="number" id="duration" placeholder="Duration(hours)*" required />
+          </div>
+        </div>
+        <div class="specialrequestandplayers">
+          <textarea
+            id="specialRequest"
+            placeholder="Special Request"
+            required
+            rows="5"
+          ></textarea>
+          <input type="number" id="players"  placeholder="Number of Players*" required/>
+        </div>
+        <div class="btnBox">
+          <button>Confirm Booking</button>
+        </div>
+      </form>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="topbox">
+        <div class="box">
+          <h4>Jamal Pool Club</h4>
+          <p>
+            Join us at Jamal Pool Club for the best pool games, music, and a
+            great community. Dive into the fun today!
+          </p>
+        </div>
+        <div class="box">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/Day23/pages/home.html">Home</a></li>
+            <li><a href="/Day23/pages/home.html">Service</a></li>
+            <li><a href="/Day23/pages/home.html">About</a></li>
+            <li><a href="/Day23/pages/home.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>Follow Us</h4>
+          <div class="socialmediaBtn">
+            <div>
+              <button>Facebook</button>
+              <button>Instagram</button>
+            </div>
+            <div>
+              <button>Whatsapp</button>
+              <button>LinkedIn</button>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <h4>Contact Us</h4>
+          <div class="contactBox">
+            <p>Email: jamalhaidery20@gmail.com</p>
+            <p>Phone: +923 555 957243</p>
+          </div>
+          <div class="addressBox">
+            <p>Address: JPC Ali Chock Skardu , Gilgit Baltistan ,Pakistan</p>
+          </div>
+        </div>
+      </div>
+      <div class="bottomBox">
+        <hr />
+        <p>&copy; 2025 Jamal Pool Club. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
 </html>

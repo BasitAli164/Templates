@@ -1,0 +1,233 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --white: #fff;
+    --black: #000;
+    --green: #17a589;
+    --darkGreen: #004d40;
+    --shadow: 0px 1px 15px 1px #6d6d6d;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #e9e9e9;
+
+}
+
+/* Header CSS Start from here */
+.header {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--green);
+    padding: 5px;
+}
+
+.header .logoBox img {
+    width: 75px;
+}
+
+.header .menuList ul {
+    display: flex;
+    gap: 30px;
+}
+
+.header .menuList ul li {
+    list-style: none;
+
+}
+
+.header .menuList ul li a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.header .logoutBtnBox button {
+    border: none;
+    outline: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: var(--darkGreen);
+    color: var(--white);
+    cursor: pointer;
+}
+
+/* Header CSS End From Here */
+
+.bookingForm {
+    width: 100%;
+    display: flex;
+
+}
+
+.bookingForm .innerboxForm {
+    width: 45%;
+    margin: 75px auto;
+    text-align: center;
+    box-shadow: -1px -5px 1px 1px #9a9898;
+    border-radius: 10px;
+    background-color: var(--white);
+    padding: 20px;
+
+}
+
+.bookingForm .innerboxForm h1 {
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.bookingForm .innerboxForm form {
+    text-align: left;
+}
+
+.bookingForm .innerboxForm form div input {
+    width: 100%;
+    padding: 20px 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    outline-color: skyblue;
+    font-size: 18px;
+    border: 1px solid;
+}
+
+.bookingForm .innerboxForm form div select {
+    width: 100%;
+    padding: 20px 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    outline-color: skyblue;
+    font-size: 18px;
+    border: 1px solid;
+
+
+}
+
+.bookingForm .innerboxForm form .specialrequestandplayers textarea {
+    width: 100%;
+    padding: 20px 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    outline-color: skyblue;
+    font-size: 18px;
+
+}
+
+.bookingForm .innerboxForm form .dateandtime {
+    display: flex;
+    gap: 10px;
+}
+
+.bookingForm .innerboxForm form .fourfield {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.bookingForm .innerboxForm .btnBox {
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.bookingForm .innerboxForm .btnBox button {
+    padding: 15px 45px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--white);
+    background-color: var(--green);
+    transition: all 0.5s linear;
+    cursor: pointer;
+}
+
+.bookingForm .innerboxForm .btnBox button:hover {
+    background-color: var(--darkGreen);
+
+}
+
+
+
+
+.footer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    background-color: rgb(59, 78, 59);
+    color: var(--white);
+    padding: 20px 30px;
+}
+
+.footer .topbox {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.footer .topbox .box h4 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.footer .topbox .box p {
+    text-align: justify;
+}
+
+.footer .topbox .box ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.footer .topbox .box ul li {
+    list-style: none;
+}
+
+.footer .topbox .box ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.footer .topbox .box .socialmediaBtn {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .topbox .box .socialmediaBtn div button {
+    width: 100px;
+    border: none;
+    outline: none;
+    padding: 5px 20px;
+    margin: 4px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--green);
+    color: white;
+}
+
+
+.footer .topbox .box .contactBox p {
+    text-align: justify;
+}
+
+
+.footer .bottomBox {
+    text-align: center;
+    margin-top: 30px;
+}
