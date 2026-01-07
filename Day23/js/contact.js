@@ -17,18 +17,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // ====== contact form  logic end form here ====
 
-
   const contactForm = document.querySelector("#contactform");
   const name = document.querySelector("#name");
   const email = document.getElementById("email");
   const message = document.getElementById("message");
 
+  const contactData = JSON.parse(localStorage.getItem("contactData")) || [];
 
-
-  const contactData=JSON.parse(localStorage.getItem("contactData"))||[];
-
-  function saveContactDataInLocalStorage(){
-    localStorage.setItem("contactData",JSON.stringify(contactData))
+  function saveContactDataInLocalStorage() {
+    localStorage.setItem("contactData", JSON.stringify(contactData));
   }
 
   contactForm.addEventListener("submit", (e) => {
@@ -46,25 +43,25 @@ window.addEventListener("DOMContentLoaded", () => {
         return;
       }
       const customerMessage = message.value.trim();
-     
 
-      const newData={
-        id:Date.now(),
-        createdAt:new Date(),
-        name:customerName,
-        email:customerEmail,
-        message:customerMessage        
-      }
+      const newData = {
+        id: Date.now(),
+        createdAt: new Date(),
+        name: customerName,
+        email: customerEmail,
+        message: customerMessage,
+      };
 
       contactData.push(newData);
-      console.log(newData)
+      console.log(newData);
       saveContactDataInLocalStorage();
       contactForm.reset();
       name.focus();
-
-      
     } catch (error) {
-      console.error("Facing error during contacting through contact form",error);
+      console.error(
+        "Facing error during contacting through contact form",
+        error
+      );
     }
   });
 });
