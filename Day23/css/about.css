@@ -1,0 +1,144 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --white: #fff;
+    --black: #000;
+    --green: #17a589;
+    --darkGreen: #004d40;
+    --shadow: 0px 1px 15px 1px #6d6d6d;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+}
+
+/* Header CSS Start from here */
+.header {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--green);
+    padding: 5px;
+}
+
+.header .logoBox img {
+    width: 75px;
+}
+
+.header .menuList ul {
+    display: flex;
+    gap: 30px;
+}
+
+.header .menuList ul li {
+    list-style: none;
+
+}
+
+.header .menuList ul li a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.header .logoutBtnBox button {
+    border: none;
+    outline: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: var(--darkGreen);
+    color: var(--white);
+    cursor: pointer;
+}
+
+/* Header CSS End From Here */
+
+
+/* footer css start from here */
+
+.footer{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    background-color: rgb(59, 78, 59);
+    color: var(--white);
+    padding: 20px 30px;
+}
+.footer .topbox{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+.footer .topbox .box h4{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.footer .topbox .box p{
+    text-align: justify;
+}
+
+.footer .topbox .box ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+.footer .topbox .box ul li{
+    list-style: none;
+}
+.footer .topbox .box ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.footer .topbox .box .socialmediaBtn{
+    display: flex;
+    flex-direction: column;
+}
+.footer .topbox .box .socialmediaBtn div button{
+    width:100px;
+    border: none;
+    outline: none;
+    padding: 5px 20px;
+    margin: 4px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--green);
+    color: white;
+}
+
+
+.footer .topbox .box .contactBox p{
+    text-align: justify;
+} 
+
+
+.footer .bottomBox{
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+
+
+
+
+/* footer css end from here */
+
+

@@ -12,14 +12,13 @@
     --black: #000;
     --green: #17a589;
     --darkGreen: #004d40;
-    --shadow: 0px 1px 15px 1px #6d6d6d;
 }
 
 html,
 body {
     width: 100%;
     height: 100%;
-    /* background-color: #e9e9e9; */
+    position: relative;
 
 }
 
@@ -32,7 +31,6 @@ body {
     align-items: center;
     background-color: var(--green);
     padding: 5px;
-    z-index: 1000;
 }
 
 .header .logoBox img {
@@ -70,100 +68,83 @@ body {
 
 /* Header CSS End From Here */
 
-.bookingForm {
+.contactContainer {
     width: 100%;
     display: flex;
 
 }
 
-.bookingForm .innerboxForm {
+.contactContainer .contactForm {
     width: 45%;
     margin: 75px auto;
-    text-align: center;
     box-shadow: 5px 5px 20px 20px #e9e9e9;
     border-radius: 10px;
     background-color: var(--white);
-    padding: 20px;
-
+    padding: 30px;
 }
 
-.bookingForm .innerboxForm h1 {
-    opacity: 0.8;
+.contactContainer .contactForm h1 {
+    text-align: center;
+    font-size: 50px;
     margin-bottom: 10px;
 }
 
-.bookingForm .innerboxForm form {
-    text-align: left;
-}
-
-.bookingForm .innerboxForm form div input {
+.contactContainer .contactForm form div input {
     width: 100%;
-    padding: 20px 5px;
-    margin-top: 10px;
+    margin-top: 8px;
+    padding: 20px;
     border-radius: 5px;
-    outline-color: skyblue;
-    font-size: 18px;
-    border: 1px solid;
-}
-
-.bookingForm .innerboxForm form div select {
-    width: 100%;
-    padding: 20px 5px;
-    margin-top: 10px;
-    border-radius: 5px;
-    outline-color: skyblue;
-    font-size: 18px;
-    border: 1px solid;
-
-
-}
-
-.bookingForm .innerboxForm form .specialrequestandplayers textarea {
-    width: 100%;
-    padding: 20px 5px;
-    margin-top: 10px;
-    border-radius: 5px;
-    outline-color: skyblue;
+    border: 0.5px solid;
     font-size: 18px;
 
 }
 
-.bookingForm .innerboxForm form .dateandtime {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 10px;
+.contactContainer .contactForm form div input:focus {
+
+    outline: 2px solid skyblue;
+    border: none;
 }
 
-.bookingForm .innerboxForm form .fourfield {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+.contactContainer .contactForm form textarea {
+    width: 100%;
+    margin-top: 8px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 0.5px solid;
+    font-size: 18px;
 }
 
-.bookingForm .innerboxForm .btnBox {
+.contactContainer .contactForm form textarea:focus {
+    border: none;
+    outline: 2px solid skyblue;
+
+}
+.contactContainer .contactForm form  .btnBox{
     text-align: center;
     margin: 10px 0px;
 }
-
-.bookingForm .innerboxForm .btnBox button {
-    padding: 15px 45px;
+.contactContainer .contactForm form  .btnBox button{
+    padding: 15px 30px;
     border: none;
     border-radius: 50px;
-    font-weight: bold;
-    font-size: 18px;
-    color: var(--white);
     background-color: var(--green);
+    color: var(--white);
+    font-size: 18px;
+    font-weight: bold;
     transition: all 0.5s linear;
+}
+.contactContainer .contactForm form  .btnBox button:hover{
+    background-color: var(--darkGreen);
     cursor: pointer;
 }
 
-.bookingForm .innerboxForm .btnBox button:hover {
-    background-color: var(--darkGreen);
-
-}
 
 
 
+
+
+
+/* footer css start from here */
 
 .footer {
     display: grid;
@@ -233,3 +214,10 @@ body {
     text-align: center;
     margin-top: 30px;
 }
+
+
+
+
+
+
+/* footer css end from here */
