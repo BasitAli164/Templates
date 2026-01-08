@@ -1,5 +1,5 @@
-window.addEventListener("DOMContentLoaded",()=>{
-    // ====== auth logic start form here ====
+window.addEventListener("DOMContentLoaded", () => {
+  // ====== auth logic start form here ====
   const logOutBtn = document.getElementById("logoutBtn");
   const userData = JSON.parse(localStorage.getItem("userData"));
   console.log("user Data", userData);
@@ -14,4 +14,12 @@ window.addEventListener("DOMContentLoaded",()=>{
   });
 
   // ====== auth logic end form here ====
-})
+  // ========== Booking Btn logic or code ===========
+  const bookBtn = document.querySelectorAll("#bookBtn");
+ 
+  bookBtn.forEach((btn)=>btn.addEventListener("click",()=>{
+    window.location.assign("../pages/bookingform.html")
+  }))
+
+
+});
