@@ -32,6 +32,9 @@ body {
     align-items: center;
     background-color: var(--green);
     padding: 5px;
+    top: 0;
+    z-index: 1000;
+
 }
 
 .header .logoBox img {
@@ -69,50 +72,151 @@ body {
 
 /* Header CSS End From Here */
 
+main {
+    min-height: 100%;
+    background-image: url("../assets/image/about.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--white);
+    background-color: rgba(0, 0, 0, 0.2);
+    background-blend-mode: multiply;
+
+    overflow: hidden;
+}
+
+main section {
+    margin: 50px auto;
+    max-width: 1000px;
+    text-align: center;
+
+}
+
+main section .intro {
+    margin: 20px 0px;
+
+}
+
+main section .intro h1 {
+    font-size: 50px;
+}
+
+main section .intro p {
+
+    line-height: 1.5;
+}
+
+main section .teams {
+    margin: 40px 0px;
+}
+
+main section .teams h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+main section .teams .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+}
+
+main section .teams .cards .card {
+    text-align: center;
+    border-radius: 12px;
+    padding: 30px 90px;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+main section .teams .cards .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+main section .teams .cards .card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+main section .teams .cards .card h4 {
+    font-size: 18px;
+}
+
+main section .teams .cards .card p {
+    font-size: 14px;
+}
+
+main section .mission {
+    margin: 30px 0px;
+
+}
+
+main section .mission h2 {
+    font-size: 40px;
+}
+
+main section .mission p {
+    line-height: 1.5;
+}
+
+
+
 
 /* footer css start from here */
 
-.footer{
+.footer {
     display: grid;
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: repeat(1, 1fr);
     background-color: rgb(59, 78, 59);
     color: var(--white);
     padding: 20px 30px;
 }
-.footer .topbox{
+
+.footer .topbox {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
-.footer .topbox .box h4{
+
+.footer .topbox .box h4 {
     font-size: 25px;
     margin-bottom: 10px;
 }
-.footer .topbox .box p{
+
+.footer .topbox .box p {
     text-align: justify;
 }
 
-.footer .topbox .box ul{
+.footer .topbox .box ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
 }
-.footer .topbox .box ul li{
+
+.footer .topbox .box ul li {
     list-style: none;
 }
-.footer .topbox .box ul li a{
+
+.footer .topbox .box ul li a {
     text-decoration: none;
     color: white;
     font-size: 16px;
     cursor: pointer;
 }
-.footer .topbox .box .socialmediaBtn{
+
+.footer .topbox .box .socialmediaBtn {
     display: flex;
     flex-direction: column;
 }
-.footer .topbox .box .socialmediaBtn div button{
-    width:100px;
+
+.footer .topbox .box .socialmediaBtn div button {
+    width: 100px;
     border: none;
     outline: none;
     padding: 5px 20px;
@@ -124,12 +228,12 @@ body {
 }
 
 
-.footer .topbox .box .contactBox p{
+.footer .topbox .box .contactBox p {
     text-align: justify;
-} 
+}
 
 
-.footer .bottomBox{
+.footer .bottomBox {
     text-align: center;
     margin-top: 30px;
 }
@@ -140,5 +244,3 @@ body {
 
 
 /* footer css end from here */
-
-
