@@ -7,7 +7,25 @@
     <title>Note App</title>
   </head>
   <body>
-    
+    <div class="container">
+      <header class="header">
+        <h1>Elegant Notes</h1>
+        <p>Stores your thoughts and ideas in style</p>
+      </header>
+      <div class="controls">
+        <div class="controls-container">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search notes..."
+            class="search-input"
+          />
+          <button id="addNoteBtn" class="add-btn">+ add</button>
+        </div>
+        <div id="noteContainer" class="notes-grid "></div>
+      </div>
+    </div>
+
     <script src="./script.js"></script>
   </body>
 </html>
