@@ -1,0 +1,58 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background: #cb3837;
+  color: #fff;
+}
+
+header .logo {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+header nav a {
+  margin-left: 16px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.hero {
+  padding: 50px 32px;
+  text-align: center;
+  background: #f3f3f3;
+}
+
+.hero input {
+  padding: 8px;
+  width: 300px;
+  margin-right: 8px;
+}
+
+.hero button {
+  padding: 8px 12px;
+  background: #cb3837;
+  color: white;
+  border: none;
+}
+
+.packages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 32px;
+}
+
+.packages .package-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  width: 220px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.package-page {
+  padding: 32px;
+}
